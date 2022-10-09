@@ -1,0 +1,28 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2022
+    },
+    "extends": [
+        "plugin:@next/next/recommended",
+        "plugin:lvksh/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+        "plugin:styled-components-a11y/recommended"
+    ],
+    "ignorePatterns": ["!**/*", "*.cjs"],
+    "plugins": ["lvksh", "react", "react-hooks", "styled-components-a11y"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true,
+        "es2022": true
+    },
+    "rules": {
+        "quotes": ["error", "double"],
+        "unicorn/prefer-module": "off",
+        "unicorn/prevent-abbreviations": "off",
+        "unicorn/prefer-at": "off",
+        "unicorn/prefer-node-protocol": "off"
+    }
+}
