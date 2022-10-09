@@ -55,6 +55,7 @@ declare module "styled-components" {
         };
 
         container: {
+            xlarge: string;
             large: string;
             medium: string;
         };
@@ -63,9 +64,18 @@ declare module "styled-components" {
             size: {
                 xlarge: string;
                 large: string;
+                medium: string;
                 normal: string;
             };
         };
+
+        icon: {
+            size: {
+                large: string;
+                normal: string;
+            };
+        };
+
         breakpoints: {
             large: string;
             medium: string;

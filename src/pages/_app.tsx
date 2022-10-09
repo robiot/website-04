@@ -21,16 +21,27 @@ const GlobalStyle = createGlobalStyle`
 
     html, body {
         padding: 0;
+        scroll-behavior: smooth;
+
         margin: 0;
     }
 
+    /* body {
+        contain: paint;
+    } */
+
     body {
-        font-family: 'Open Sans', sans-serif;
+        scroll-behavior: smooth;
+        font-family: 'Noto Sans', sans-serif;
 
         background: linear-gradient(202deg, ${({ theme }) =>
             theme.palette.primary.bg.from} 3.15%, ${({ theme }) =>
     theme.palette.primary.bg.to} 121%), ${({ theme }) =>
     theme.palette.primary.bg.to}; 
+    }
+
+    #__next {
+        /* position: relative; */
     }
 
     h1, h2, h3, h4, h5, h6 {

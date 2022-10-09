@@ -1,34 +1,37 @@
-import robot from "@assets/robot.png";
-import Image from "next/image";
-import Link from "next/link";
+import { Container } from "@components/Common/Container/Container";
+import { NavLinks } from "@components/Common/NavLinks/NavLinks";
+import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
+import { Links, LinksSection2, NavbarHeight } from "@lib/constants";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const Navbar = () => {
+    const [isTop, setIsTop] = useState(false);
+
+    const handleScroll = () => {
+        setIsTop(window.scrollY >= 66);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, true);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll, true);
+        };
+    }, []);
+
     return (
-        <Wrapper>
-            <Container>
+        <Wrapper className={isTop ? "scrolled" : ""}>
+            <Container size="large">
                 <SpaceBetween>
-                    <Link href="/" passHref>
-                        {/* eslint-disable-next-line styled-components-a11y/anchor-is-valid*/}
-                        <WebsiteHome>
-                            <Image
-                                src={robot}
-                                height="50px"
-                                width="50px"
-                                alt="Site image"
-                                style={{ borderRadius: "9999px" }}
-                            />
-                            <Text>robiot</Text>
-                        </WebsiteHome>
-                    </Link>
+                    <SiteBanner />
 
                     <Items>
-                        <Link href="/" passHref>
-                            {/* eslint-disable-next-line styled-components-a11y/anchor-is-valid*/}
-                            <Item>
-                                <Text>Home</Text>
-                            </Item>
-                        </Link>
+                        <NavLinks links={Links} />
+
+                        <Divider />
+
+                        <NavLinks links={LinksSection2} />
                     </Items>
                 </SpaceBetween>
             </Container>
@@ -36,58 +39,43 @@ export const Navbar = () => {
     );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
     position: sticky;
     top: 0;
+    left: 0;
+    z-index: 500;
 
     display: flex;
     width: 100%;
-    height: 70px;
+    height: ${NavbarHeight};
 
-    background-color: white;
-`;
-
-const Container = styled.div`
-    width: 100%;
-    max-width: ${({ theme }) => theme.container.large};
-
-    margin: 0 auto;
-    padding: 10px 10px;
+    transition: box-shadow 0.2s;
+    &.scrolled {
+        background-color: ${({ theme }) => theme.palette.primary.bg.from};
+        box-shadow: inset 0 -1px 0 0 ${({ theme }) => theme.palette.divider}44;
+    }
 `;
 
 const SpaceBetween = styled.div`
     display: flex;
     justify-content: space-between;
-`;
-
-const WebsiteHome = styled.a`
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    color: ${({ theme }) => theme.palette.primary.fg};
-    text-decoration: none;
-`;
-
-const Text = styled.span`
-    font-weight: 400;
-    font-size: ${({ theme }) => theme.font.size.normal};
+    height: 100%;
 `;
 
 const Items = styled.div`
     display: flex;
+    height: 100%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        display: none;
+    }
 `;
 
-const Item = styled.a`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 10px;
-    color: ${({ theme }) => theme.palette.primary.fgWashedOut};
+const Divider = styled.div`
+    height: 20px;
+    width: 2px;
+    margin: 0 20px;
+    align-self: center;
 
-    transition: color 0.5s;
-
-    &:hover {
-        color: ${({ theme }) => theme.palette.primary.fg};
-    }
+    background-color: ${({ theme }) => theme.palette.divider};
 `;

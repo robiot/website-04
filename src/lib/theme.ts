@@ -51,20 +51,30 @@ export const LightTheme: DefaultTheme = {
     },
 
     container: {
-        large: "1000px",
+        xlarge: "1300px",
+        large: "1200px",
         medium: "800px",
     },
 
     font: {
         size: {
-            xlarge: "35px",
+            xlarge: "60px",
             large: "30px",
-            normal: "22px",
+            medium: "27px",
+            normal: "19px",
         },
     },
+
+    icon: {
+        size: {
+            large: "40px",
+            normal: "30px",
+        },
+    },
+
     breakpoints: {
         large: "1200px",
-        medium: "800px",
+        medium: "1000px",
         small: "500px",
     },
 
