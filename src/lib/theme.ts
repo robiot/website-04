@@ -47,13 +47,15 @@ export const LightTheme: DefaultTheme = {
 
         shadow: "#0000001A",
 
+        link: "#4d71fa",
+
         divider: "#B9B9B9",
     },
 
     container: {
         xlarge: "1300px",
         large: "1200px",
-        medium: "800px",
+        medium: "900px",
     },
 
     font: {
@@ -62,6 +64,7 @@ export const LightTheme: DefaultTheme = {
             large: "30px",
             medium: "27px",
             normal: "19px",
+            small: "15px",
         },
     },
 

@@ -42,6 +42,11 @@ export const FooterLinks: FC = () => {
 const Wrapper = styled.div`
     display: flex;
     gap: 100px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        flex-direction: column;
+        text-align: center;
+    }
 `;
 
 const Column = styled.div`

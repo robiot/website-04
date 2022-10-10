@@ -1,4 +1,5 @@
-import { Languages } from "@lib/constants";
+import { Languages, Other, Technologies } from "@lib/constants";
+import { cx } from "@lib/utils";
 import Image from "next/image";
 import { FC } from "react";
 import styled from "styled-components";
@@ -6,7 +7,10 @@ import styled from "styled-components";
 const getItems = (itemtype: { name: string; image: string }[]) => {
     return itemtype.map((item, index) => {
         return (
-            <Item key={index}>
+            <Item
+                key={index}
+                className={cx(index == itemtype.length - 1 && "last")}
+            >
                 <Image
                     height={30}
                     width={30}
@@ -30,40 +34,72 @@ export const SkillsTable: FC = () => {
 
             <Column>
                 <ColumnTitle>Technologies</ColumnTitle>
+                {getItems(Technologies)}
             </Column>
 
             <Separator />
 
             <Column>
                 <ColumnTitle>Others</ColumnTitle>
+                {getItems(Other)}
             </Column>
         </Wrapper>
     );
 };
 
+const fromTop = "80px";
+
 const Wrapper = styled.div`
     display: flex;
-    /* margin-top: -60px; */
+    justify-content: stretch;
+    margin-top: -${fromTop};
+    margin-bottom: 100px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        flex-flow: column wrap;
+        margin-top: 0;
+    }
 `;
 
 const Column = styled.div`
     flex: 1;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        margin-top: 50px;
+    }
 `;
 
 const ColumnTitle = styled.h2`
     text-align: center;
+    margin-bottom: ${fromTop};
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        margin-bottom: 10px;
+    }
 `;
 
 const Item = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 20px;
+    padding: 15px 20px;
+
+    font-size: ${({ theme }) => theme.font.size.normal};
+
+    color: ${({ theme }) => theme.palette.primary.fg};
+
+    border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
+
+    &.last {
+        border-bottom: none;
+    }
 `;
 
 export const Separator = styled.div`
-    flex-grow: initial;
-    width: 0.1rem;
-    display: flex;
+    width: 1px;
     background-color: ${({ theme }) => theme.palette.divider};
+    margin: calc(${fromTop} + 60px) 20px 20px 20px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        display: none;
+    }
 `;

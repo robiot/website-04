@@ -135,3 +135,21 @@ export const Other = [
         image: "figma.png",
     },
 ];
+
+export const Experience = [
+    {
+        title: "Software Engineer",
+        date: "Since Nov 2021",
+        image: "v3x.png",
+    },
+    {
+        title: "Web Developer Intern",
+        date: "Oct 2022",
+        image: "telenor.png",
+    },
+    {
+        title: "Web Developer",
+        date: "Apr 2022 - Sep 2022",
+        image: "winter.png",
+    },
+];

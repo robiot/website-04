@@ -51,6 +51,8 @@ declare module "styled-components" {
 
             shadow: string;
 
+            link: string;
+
             divider: string; // B9B9B9
         };
 
@@ -66,6 +68,7 @@ declare module "styled-components" {
                 large: string;
                 medium: string;
                 normal: string;
+                small: string;
             };
         };
 

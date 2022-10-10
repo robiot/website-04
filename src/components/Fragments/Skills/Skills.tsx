@@ -27,8 +27,12 @@ const Wrapper = styled.section``;
 
 const TitleBlock = styled.div`
     background-color: ${({ theme }) => theme.palette.accent.yellow};
-    padding: 50px 0;
+    padding: 50px 0 100px 0;
     height: 100%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        padding: 50px 0 50px 0;
+    }
 `;
 
 const Content = styled.div`

@@ -52,6 +52,7 @@ export const NavLinks: FC<{
 const Text = styled.span`
     font-weight: 400;
     font-size: ${({ theme }) => theme.font.size.normal};
+    flex: 1;
 `;
 
 const Item = styled.a`
