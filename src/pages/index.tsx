@@ -19,13 +19,13 @@ const IndexPage: NextPage = () => {
                     images: [
                         {
                             url: "/img/og/ogimage.png",
-                            width: 800,
-                            height: 600,
-                            alt: "Og Image Alt",
+                            width: 1406,
+                            height: 803,
+                            alt: "Image",
                             type: "image/png",
                         },
                     ],
-                    site_name: "SiteName",
+                    site_name: "Robiot",
                 }}
                 twitter={{
                     handle: "@handle",
