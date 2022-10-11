@@ -1,11 +1,12 @@
-import { ContactIcons } from "@components/Common/ContactIcons/ContactIcons";
 import { Container } from "@components/Common/Container/Container";
-import { HomePolygons } from "@components/Common/HomePolygons/HomePolygons";
 import { NavbarHeight } from "@lib/constants";
 import Link from "next/link";
 import { FC } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import styled from "styled-components";
+
+import { ContactIcons } from "./ContactIcons/ContactIcons";
+import { HomePolygons } from "./HomePolygons/HomePolygons";
 
 // The top of the home page / landing
 export const Home: FC = () => {

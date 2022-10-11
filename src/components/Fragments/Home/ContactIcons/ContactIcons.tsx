@@ -1,13 +1,17 @@
 import { Contact } from "@lib/constants";
 import { copyMToClipboard } from "@lib/utils";
 import { FC } from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
 import styled from "styled-components";
 
 export const ContactIcons: FC = () => {
     return (
         <Wrapper>
             {Contact.map((item) => {
+                if (item.name == "LinkedIn") {
+                    return;
+                }
+
                 return (
                     <Icon
                         key={`contact_icon_${item.name}`}
@@ -16,7 +20,7 @@ export const ContactIcons: FC = () => {
                         aria-label={item.name}
                     >
                         {item.name == "Github" && <FaGithub />}
-                        {item.name == "LinkedIn" && <FaLinkedin />}
+                        {item.name == "Youtube" && <FaYoutube />}
                         {item.name == "Twitter" && <FaTwitter />}
                     </Icon>
                 );

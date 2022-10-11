@@ -9,7 +9,30 @@ import { NextSeo } from "next-seo";
 const IndexPage: NextPage = () => {
     return (
         <Layout>
-            <NextSeo title="robiot - Home" description="About me" />
+            <NextSeo
+                title="robiot - Home"
+                description="About me"
+                openGraph={{
+                    url: "https://robiot.dev",
+                    title: "Open Graph Title",
+                    description: "Open Graph Description",
+                    images: [
+                        {
+                            url: "//og/ogimage.png",
+                            width: 800,
+                            height: 600,
+                            alt: "Og Image Alt",
+                            type: "image/png",
+                        },
+                    ],
+                    site_name: "SiteName",
+                }}
+                twitter={{
+                    handle: "@handle",
+                    site: "@site",
+                    cardType: "summary_large_image",
+                }}
+            />
             <Home />
             <About />
             <Skills />

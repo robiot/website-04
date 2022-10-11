@@ -2,7 +2,7 @@ import { Contact, Links, LinksSection2 } from "@lib/constants";
 import { FC } from "react";
 import styled from "styled-components";
 
-import { NavLinks } from "../NavLinks/NavLinks";
+import { NavLinks } from "../../../Common/NavLinks/NavLinks";
 
 export const FooterLinks: FC = () => {
     return (

@@ -40,6 +40,10 @@ export const Contact: LinksType = [
         name: "Twitter",
         to: "https://twitter.com/notrobiot",
     },
+    {
+        name: "Youtube",
+        to: "https://youtube.com/c/robiot",
+    },
 ];
 
 export const Languages = [
@@ -136,20 +140,36 @@ export const Other = [
     },
 ];
 
-export const Experience = [
+export type ExperiencesType = {
+    title: string;
+    company: string;
+    date: string;
+    image: string;
+}[];
+
+export const Experiences: ExperiencesType = [
+    {
+        title: "Open-source Contributor",
+        company: "",
+        date: "Anything anywhere anytime",
+        image: "github.png",
+    },
     {
         title: "Software Engineer",
+        company: "V3x",
         date: "Since Nov 2021",
-        image: "v3x.png",
+        image: "v3x.jpeg",
     },
     {
         title: "Web Developer Intern",
+        company: "Telenor",
         date: "Oct 2022",
-        image: "telenor.png",
+        image: "telenor.jpeg",
     },
     {
         title: "Web Developer",
+        company: "Winter",
         date: "Apr 2022 - Sep 2022",
-        image: "winter.png",
+        image: "winter.jpeg",
     },
 ];

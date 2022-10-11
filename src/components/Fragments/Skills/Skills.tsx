@@ -1,11 +1,14 @@
 import { Container } from "@components/Common/Container/Container";
-import { SkillsTable } from "@components/Common/SkillsTable/SkillsTable";
 import { FC } from "react";
 import styled from "styled-components";
+
+import { SkillsPolygons } from "./SkillsPolygons/SkillsPolygons";
+import { SkillsTable } from "./SkillsTable/SkillsTable";
 
 export const Skills: FC = () => {
     return (
         <Wrapper id="skills">
+            <SkillsPolygons />
             <Container size="xlarge" noPadding>
                 <TitleBlock>
                     <Container size="medium">
@@ -23,7 +26,10 @@ export const Skills: FC = () => {
     );
 };
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+    position: relative;
+    overflow-x: clip;
+`;
 
 const TitleBlock = styled.div`
     background-color: ${({ theme }) => theme.palette.accent.yellow};

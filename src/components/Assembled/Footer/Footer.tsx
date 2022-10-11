@@ -1,8 +1,9 @@
 import { Container } from "@components/Common/Container/Container";
-import { FooterLinks } from "@components/Common/FooterLinks/FooterLinks";
 import { Hyperlink } from "@components/Common/Hyperlink/Hyperlink";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
 import styled from "styled-components";
+
+import { FooterLinks } from "./FooterLinks/FooterLinks";
 
 export const Footer = () => {
     return (
