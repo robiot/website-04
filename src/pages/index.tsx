@@ -18,7 +18,7 @@ const IndexPage: NextPage = () => {
                     description: "Open Graph Description",
                     images: [
                         {
-                            url: "//og/ogimage.png",
+                            url: "//img/og/ogimage.png",
                             width: 800,
                             height: 600,
                             alt: "Og Image Alt",
