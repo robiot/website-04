@@ -1,18 +1,25 @@
+import "react-piano/dist/styles.css";
+
 import { Layout } from "@components/Assembled/Layout/Layout";
-import { About } from "@components/Fragments/About/About";
-import { Experience } from "@components/Fragments/Experience/Experience";
-import { Home } from "@components/Fragments/Home/Home";
-import { Projects } from "@components/Fragments/Projects/Projects";
-import { Skills } from "@components/Fragments/Skills/Skills";
 import { PrimaryText } from "@lib/constants";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
+import { KeyboardShortcuts, MidiNumbers, Piano } from "react-piano";
+import SoundfontProvider from "soundfont-player";
 
 const IndexPage: NextPage = () => {
+    const firstNote = MidiNumbers.fromNote("c3")!;
+    const lastNote = MidiNumbers.fromNote("f5")!;
+    const keyboardShortcuts = KeyboardShortcuts.create({
+        firstNote: firstNote,
+        lastNote: lastNote,
+        keyboardConfig: KeyboardShortcuts.HOME_ROW,
+    });
+
     return (
         <Layout>
             <NextSeo
-                title="robiot - Home"
+                title="robiot - Page not found"
                 description={PrimaryText}
                 openGraph={{
                     url: "https://robiot.dev",
@@ -35,12 +42,20 @@ const IndexPage: NextPage = () => {
                 }}
             />
 
+            <SoundfontProvider>
+                <Piano
+                    noteRange={{ first: firstNote, last: lastNote }}
+                    playNote={(midiNumber) => {
+                        // Play a given note - see notes below
+                    }}
+                    stopNote={(midiNumber) => {
+                        // Stop playing a given note - see notes below
+                    }}
+                    width={1000}
+                    keyboardShortcuts={keyboardShortcuts}
+                />
+            </SoundfontProvider>
             {/* <div style={{ height: "150vh" }}>aa</div> */}
-            <Home />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
         </Layout>
     );
 };

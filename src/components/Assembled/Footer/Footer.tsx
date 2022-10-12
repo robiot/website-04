@@ -59,6 +59,7 @@ const Content = styled.div`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         align-items: center;
+        text-align: center;
     }
 `;
 

@@ -1,5 +1,8 @@
 export const NavbarHeight = "70px";
 
+export const PrimaryText =
+    "Hello, I'm Elliot (also called Robiot online), a self-taught passionate developer with lots of experience in both web- and software development. I've been building stuff since early 2021. Many of my projects are uploaded to Github, where some have gained lots of attention. Thanks!";
+
 export type LinksDataType = {
     name: string;
     to: string;

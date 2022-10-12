@@ -84,6 +84,7 @@ const UnderText = styled.span`
     margin-top: 50px;
     color: ${({ theme }) => theme.palette.primary.fg};
     font-size: ${({ theme }) => theme.font.size.normal};
+    text-align: center;
 `;
 
 const LinkWrapper = styled.span`
