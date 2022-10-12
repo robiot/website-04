@@ -1,4 +1,4 @@
-import { Contact, Links, LinksSection2 } from "@lib/constants";
+import { ContactData, LinksData, LinksSection2Data } from "@lib/constants";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -12,13 +12,13 @@ export const FooterLinks: FC = () => {
                 <Items>
                     <NavLinks
                         flexDirection="column"
-                        links={Links}
+                        links={LinksData}
                         section2
                         marginBottom={10}
                     />
                     <NavLinks
                         flexDirection="column"
-                        links={LinksSection2}
+                        links={LinksSection2Data}
                         section2
                         marginBottom={10}
                     />
@@ -29,7 +29,7 @@ export const FooterLinks: FC = () => {
                 <Items>
                     <NavLinks
                         flexDirection="column"
-                        links={Contact}
+                        links={ContactData}
                         section2
                         marginBottom={10}
                     />

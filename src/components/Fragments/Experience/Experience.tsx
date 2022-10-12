@@ -1,5 +1,5 @@
 import { Container } from "@components/Common/Container/Container";
-import { Experiences } from "@lib/constants";
+import { ExperiencesData } from "@lib/constants";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ export const Experience: FC = () => {
                     <Title>Experience</Title>
 
                     <ExperiencesWrapper>
-                        {Experiences.map((item, index) => {
+                        {ExperiencesData.map((item, index) => {
                             return (
                                 <ExperienceItem
                                     item={item}
@@ -30,13 +30,14 @@ export const Experience: FC = () => {
 
 const Wrapper = styled.section`
     background-color: ${({ theme }) => theme.palette.section[1].bg};
+    scroll-margin-top: 20px;
 `;
 
 const ContentWrapper = styled.div`
     z-index: 100;
     position: relative;
 
-    padding: 70px 0;
+    padding: 70px 0 250px 0;
     height: 100%;
     /* 
     max-width: 100px;

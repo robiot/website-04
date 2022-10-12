@@ -29,6 +29,7 @@ export const Skills: FC = () => {
 const Wrapper = styled.section`
     position: relative;
     overflow-x: clip;
+    scroll-margin-top: 40px;
 `;
 
 const TitleBlock = styled.div`

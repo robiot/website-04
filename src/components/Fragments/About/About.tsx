@@ -36,6 +36,7 @@ export const About: FC = () => {
 
 const Wrapper = styled.section`
     background-color: ${({ theme }) => theme.palette.section[1].bg};
+    scroll-margin-top: 40px;
 `;
 
 const ContentWrapper = styled.div`

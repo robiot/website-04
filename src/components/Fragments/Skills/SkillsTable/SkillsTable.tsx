@@ -1,4 +1,4 @@
-import { Languages, Other, Technologies } from "@lib/constants";
+import { LanguagesData, OtherData, TechnologiesData } from "@lib/constants";
 import { cx } from "@lib/utils";
 import Image from "next/image";
 import { FC } from "react";
@@ -28,20 +28,20 @@ export const SkillsTable: FC = () => {
         <Wrapper>
             <Column>
                 <ColumnTitle>Languages</ColumnTitle>
-                {getItems(Languages)}
+                {getItems(LanguagesData)}
             </Column>
             <Separator />
 
             <Column>
                 <ColumnTitle>Technologies</ColumnTitle>
-                {getItems(Technologies)}
+                {getItems(TechnologiesData)}
             </Column>
 
             <Separator />
 
             <Column>
                 <ColumnTitle>Others</ColumnTitle>
-                {getItems(Other)}
+                {getItems(OtherData)}
             </Column>
         </Wrapper>
     );

@@ -1,9 +1,9 @@
-import { ExperiencesType } from "@lib/constants";
+import { ExperiencesDataType } from "@lib/constants";
 import Image from "next/image";
 import { FC } from "react";
 import styled from "styled-components";
 
-export const ExperienceItem: FC<{ item: ExperiencesType[any] }> = (
+export const ExperienceItem: FC<{ item: ExperiencesDataType[any] }> = (
     properties
 ) => {
     return (

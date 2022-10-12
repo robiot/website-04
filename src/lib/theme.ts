@@ -41,7 +41,7 @@ export const LightTheme: DefaultTheme = {
         },
 
         button: {
-            bg: "#D7BBF9",
+            bg: "#6E8CFC",
             fg: "#FFFFFF",
         },
 

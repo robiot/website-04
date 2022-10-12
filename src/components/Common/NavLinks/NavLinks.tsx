@@ -1,11 +1,11 @@
-import { LinksType } from "@lib/constants";
+import { LinksDataType } from "@lib/constants";
 import { cx } from "@lib/utils";
 import Link from "next/link";
 import { FC } from "react";
 import styled from "styled-components";
 
 export const NavLinks: FC<{
-    links: LinksType;
+    links: LinksDataType;
     section2?: boolean;
     flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
     marginBottom?: number | string;

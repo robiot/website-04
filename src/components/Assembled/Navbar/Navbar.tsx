@@ -1,7 +1,7 @@
 import { Container } from "@components/Common/Container/Container";
 import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import { Links, LinksSection2, NavbarHeight } from "@lib/constants";
+import { LinksData, LinksSection2Data, NavbarHeight } from "@lib/constants";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -27,11 +27,11 @@ export const Navbar = () => {
                     <SiteBanner />
 
                     <Items>
-                        <NavLinks links={Links} />
+                        <NavLinks links={LinksData} />
 
                         <Divider />
 
-                        <NavLinks links={LinksSection2} />
+                        <NavLinks links={LinksSection2Data} />
                     </Items>
                 </SpaceBetween>
             </Container>

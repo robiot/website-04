@@ -2,6 +2,7 @@ import { Layout } from "@components/Assembled/Layout/Layout";
 import { About } from "@components/Fragments/About/About";
 import { Experience } from "@components/Fragments/Experience/Experience";
 import { Home } from "@components/Fragments/Home/Home";
+import { Projects } from "@components/Fragments/Projects/Projects";
 import { Skills } from "@components/Fragments/Skills/Skills";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
@@ -14,8 +15,6 @@ const IndexPage: NextPage = () => {
                 description="Hello, I'm Elliot, a web and software developer"
                 openGraph={{
                     url: "https://robiot.dev",
-                    // title: "Open Graph Title",
-                    // description: "Open Graph Description",
                     images: [
                         {
                             url: "/img/og/ogimage.png",
@@ -33,10 +32,13 @@ const IndexPage: NextPage = () => {
                     cardType: "summary_large_image",
                 }}
             />
+
+            {/* <div style={{ height: "150vh" }}>aa</div> */}
             <Home />
             <About />
             <Skills />
             <Experience />
+            <Projects />
         </Layout>
     );
 };

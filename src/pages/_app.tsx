@@ -21,23 +21,28 @@ const GlobalStyle = createGlobalStyle`
 
     html, body {
         padding: 0;
-        scroll-behavior: smooth;
 
         margin: 0;
     }
 
+    /* html {
+        scroll-behavior: smooth;
+    } */
     /* body {
         contain: paint;
     } */
 
     body {
-        scroll-behavior: smooth;
         font-family: 'Noto Sans', sans-serif;
 
         background: linear-gradient(202deg, ${({ theme }) =>
             theme.palette.primary.bg.from} 3.15%, ${({ theme }) =>
     theme.palette.primary.bg.to} 121%), ${({ theme }) =>
     theme.palette.primary.bg.to}; 
+    }
+
+    html:focus-within {
+        scroll-behavior: smooth;
     }
 
     #__next {

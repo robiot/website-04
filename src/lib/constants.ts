@@ -1,11 +1,11 @@
 export const NavbarHeight = "70px";
 
-export type LinksType = {
+export type LinksDataType = {
     name: string;
     to: string;
 }[];
 
-export const Links: LinksType = [
+export const LinksData: LinksDataType = [
     {
         name: "Home",
         to: "/",
@@ -15,19 +15,27 @@ export const Links: LinksType = [
         to: "/#about",
     },
     {
+        name: "Skills",
+        to: "/#skills",
+    },
+    {
+        name: "Experience",
+        to: "/#experience",
+    },
+    {
         name: "Projects",
         to: "/#projects",
     },
 ];
 
-export const LinksSection2: LinksType = [
+export const LinksSection2Data: LinksDataType = [
     {
         name: "Blog",
         to: "https://old.robiot.dev/blog",
     },
 ];
 
-export const Contact: LinksType = [
+export const ContactData: LinksDataType = [
     {
         name: "Github",
         to: "https://github.com/robiot",
@@ -46,7 +54,12 @@ export const Contact: LinksType = [
     },
 ];
 
-export const Languages = [
+export type SkillsDataType = {
+    name: string;
+    image: string;
+}[];
+
+export const LanguagesData: SkillsDataType = [
     {
         name: "Javascript",
         image: "javascript.png",
@@ -77,7 +90,7 @@ export const Languages = [
     },
 ];
 
-export const Technologies = [
+export const TechnologiesData = [
     {
         name: "React",
         image: "react.png",
@@ -108,7 +121,7 @@ export const Technologies = [
     },
 ];
 
-export const Other = [
+export const OtherData = [
     {
         name: "Photoshop",
         image: "photoshop.png",
@@ -140,14 +153,14 @@ export const Other = [
     },
 ];
 
-export type ExperiencesType = {
+export type ExperiencesDataType = {
     title: string;
     company: string;
     date: string;
     image: string;
 }[];
 
-export const Experiences: ExperiencesType = [
+export const ExperiencesData: ExperiencesDataType = [
     {
         title: "Open-source Contributor",
         company: "",
@@ -171,5 +184,31 @@ export const Experiences: ExperiencesType = [
         company: "Winter",
         date: "Apr 2022 - Sep 2022",
         image: "winter.jpeg",
+    },
+];
+
+export type ProjectsDataType = {
+    title: string;
+    description: string;
+    source: string;
+}[];
+
+export const ProjectsData: ProjectsDataType = [
+    {
+        title: "Rustcat",
+        description:
+            "Rustcat is an easy to use port listener and reverse shell for Linux, MacOS, and Windows.",
+        source: "https://github.com/robiot/rustcat",
+    },
+    {
+        title: "Zash",
+        description: "A shell that kinda works.",
+        source: "https://github.com/robiot/zash",
+    },
+    {
+        title: "XClicker",
+        description:
+            "An easy to use, feature-rich and blazing fast Autoclicker for linux desktops using x11.",
+        source: "https://github.com/robiot/xclicker",
     },
 ];

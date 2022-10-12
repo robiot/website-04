@@ -1,4 +1,4 @@
-import { Contact } from "@lib/constants";
+import { ContactData } from "@lib/constants";
 import { copyMToClipboard } from "@lib/utils";
 import { FC } from "react";
 import { FaEnvelope, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -7,7 +7,7 @@ import styled from "styled-components";
 export const ContactIcons: FC = () => {
     return (
         <Wrapper>
-            {Contact.map((item) => {
+            {ContactData.map((item) => {
                 if (item.name == "LinkedIn") {
                     return;
                 }

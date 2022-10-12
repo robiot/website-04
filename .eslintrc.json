@@ -18,6 +18,18 @@
         "jasmine": true,
         "es2022": true
     },
+    "globals": {
+        "React": true,
+        "google": true,
+        "mount": true,
+        "mountWithRouter": true,
+        "shallow": true,
+        "shallowWithRouter": true,
+        "context": true,
+        "expect": true,
+        "jsdom": true,
+        "JSX": true
+    },
     "rules": {
         "quotes": ["error", "double"],
         "unicorn/prefer-module": "off",
