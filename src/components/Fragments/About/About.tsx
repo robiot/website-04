@@ -8,9 +8,12 @@ export const About: FC = () => {
             <Container size="medium">
                 <ContentWrapper>
                     <Text>
-                        I'm Elliot (also called Robiot online), a passionate
-                        developer with lots of experience in both web- and
-                        software development.
+                        I'm Elliot (also called Robiot online), a self-taught
+                        passionate developer with lots of experience in both
+                        web- and software development. I've been building stuff
+                        since early 2021. Many of my projects are uploaded to
+                        Github, where some have gained lots of attention.
+                        Thanks!
                     </Text>
                     <Text>
                         But I don't just do code related stuff. I also love to
@@ -23,10 +26,6 @@ export const About: FC = () => {
                             🥁
                         </span>
                         .
-                    </Text>
-                    <Text>
-                        Most of my projects are uploaded to Github, where some
-                        projects got really popular. Thanks!
                     </Text>
                 </ContentWrapper>
             </Container>

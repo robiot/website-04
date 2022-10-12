@@ -2,11 +2,13 @@ import { Container } from "@components/Common/Container/Container";
 import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
 import { LinksData, LinksSection2Data, NavbarHeight } from "@lib/constants";
+import { cx } from "@lib/utils";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const Navbar = () => {
     const [isTop, setIsTop] = useState(false);
+    const [dropdownActive, setDropdownActive] = useState(false);
 
     const handleScroll = () => {
         setIsTop(window.scrollY >= 66);
@@ -21,21 +23,39 @@ export const Navbar = () => {
     }, []);
 
     return (
-        <Wrapper className={isTop ? "scrolled" : ""}>
-            <Container size="large">
-                <SpaceBetween>
-                    <SiteBanner />
+        <>
+            <Wrapper className={isTop ? "scrolled" : ""}>
+                <Container size="large">
+                    <SpaceBetween>
+                        <SiteBanner />
 
-                    <Items>
-                        <NavLinks links={LinksData} />
+                        <Items>
+                            <NavLinks links={LinksData} />
 
-                        <Divider />
+                            <Divider />
 
-                        <NavLinks links={LinksSection2Data} />
-                    </Items>
-                </SpaceBetween>
-            </Container>
-        </Wrapper>
+                            <NavLinks links={LinksSection2Data} />
+                        </Items>
+
+                        <ToggleDropdown
+                            className={cx(dropdownActive && "open")}
+                            onClick={() => {
+                                setDropdownActive(!dropdownActive);
+                            }}
+                        >
+                            <span />
+                            <span />
+                            <span />
+                        </ToggleDropdown>
+                    </SpaceBetween>
+                </Container>
+            </Wrapper>
+
+            {/* <Dropdown
+                dropdownActive={dropdownActive}
+                setDropdownActive={setDropdownActive}
+            /> */}
+        </>
     );
 };
 
@@ -78,4 +98,57 @@ const Divider = styled.div`
     align-self: center;
 
     background-color: ${({ theme }) => theme.palette.divider};
+`;
+
+const ToggleDropdown = styled.button`
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+
+    display: flex;
+    align-self: center;
+
+    border: 0;
+
+    transform: rotate(0deg);
+
+    position: relative;
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+        display: none;
+    }
+
+    & span {
+        transition-property: transform, top, width, opacity;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+        display: block;
+        position: absolute;
+        border-radius: 9px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background-color: ${({ theme }) => theme.palette.primary.fg};
+        transform-origin: left center; // ?
+    }
+    & span:nth-child(1) {
+        top: 0;
+    }
+    & span:nth-child(2) {
+        top: 50%;
+    }
+    & span:nth-child(3) {
+        top: 100%;
+    }
+    &.open span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    &.open span:nth-child(2) {
+        width: 0%;
+        opacity: 0;
+    }
+    &.open span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 90%;
+    }
 `;

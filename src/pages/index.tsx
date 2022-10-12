@@ -12,9 +12,15 @@ const IndexPage: NextPage = () => {
         <Layout>
             <NextSeo
                 title="robiot - Home"
-                description="Hello, I'm Elliot, a web and software developer"
+                description="Hello, I'm Elliot (also called Robiot online), a self-taught
+                passionate developer with lots of experience in both
+                web- and software development. I've been building stuff
+                since early 2021. Many of my projects are uploaded to
+                Github, where some have gained lots of attention.
+                Thanks!"
                 openGraph={{
                     url: "https://robiot.dev",
+                    type: "image/png",
                     images: [
                         {
                             url: "/img/og/ogimage.png",
