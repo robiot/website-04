@@ -6,6 +6,8 @@ import { cx } from "@lib/utils";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import { Dropdown } from "./Dropdown/Dropdown";
+
 export const Navbar = () => {
     const [isTop, setIsTop] = useState(false);
     const [dropdownActive, setDropdownActive] = useState(false);
@@ -24,7 +26,7 @@ export const Navbar = () => {
 
     return (
         <>
-            <Wrapper className={isTop ? "scrolled" : ""}>
+            <Wrapper className={cx(isTop && !dropdownActive && "scrolled")}>
                 <Container size="large">
                     <SpaceBetween>
                         <SiteBanner />
@@ -51,10 +53,10 @@ export const Navbar = () => {
                 </Container>
             </Wrapper>
 
-            {/* <Dropdown
+            <Dropdown
                 dropdownActive={dropdownActive}
                 setDropdownActive={setDropdownActive}
-            /> */}
+            />
         </>
     );
 };
@@ -107,6 +109,8 @@ const ToggleDropdown = styled.button`
 
     display: flex;
     align-self: center;
+
+    background-color: transparent;
 
     border: 0;
 

@@ -29,15 +29,6 @@ export const NavLinks: FC<{
                             style={{
                                 marginBottom: properties.marginBottom,
                             }}
-                            onClick={
-                                link.to == "/"
-                                    ? () => {
-                                          document
-                                              .querySelector("body")
-                                              ?.scrollTo(0, 0);
-                                      }
-                                    : undefined
-                            }
                             role="button"
                         >
                             <Text>{link.name}</Text>

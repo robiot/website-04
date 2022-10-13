@@ -1,5 +1,31 @@
+import { LinksData, LinksDataType, LinksSection2Data } from "@lib/constants";
+import { cx } from "@lib/utils";
+import Link from "next/link";
 import { Dispatch, FC, SetStateAction } from "react";
 import styled from "styled-components";
+
+const getLinks = (
+    links: LinksDataType,
+    setDropdownActive: Dispatch<SetStateAction<boolean>>
+): JSX.Element[] => {
+    return links.map((link, index) => {
+        return (
+            <Link href={link.to} passHref key={`dropdown_link:${link.name}`}>
+                {/* eslint-disable-next-line styled-components-a11y/anchor-is-valid, styled-components-a11y/anchor-is-valid, styled-components-a11y/click-events-have-key-events*/}
+                <Item
+                    className={cx(index == links.length - 1 && "last")}
+                    onClick={() => {
+                        setDropdownActive(false);
+                    }}
+                    tabIndex={0}
+                    role="button"
+                >
+                    {link.name}
+                </Item>
+            </Link>
+        );
+    });
+};
 
 export const Dropdown: FC<{
     dropdownActive: boolean;
@@ -8,15 +34,10 @@ export const Dropdown: FC<{
     return (
         <Wrapper className={properties.dropdownActive ? "open" : ""}>
             <DropdownItemsWrapper>
-                <DropdownItem
-                    onClick={() => {
-                        // setDropdown(false);
-                        window.scrollTo(0, 0);
-                        // Router.push("/");
-                    }}
-                >
-                    Home
-                </DropdownItem>
+                {getLinks(LinksData, properties.setDropdownActive)}
+
+                <Divider />
+                {getLinks(LinksSection2Data, properties.setDropdownActive)}
             </DropdownItemsWrapper>
         </Wrapper>
     );
@@ -29,7 +50,7 @@ const Wrapper = styled.div`
     position: fixed;
     width: 100%;
     left: 0;
-    z-index: 10;
+    z-index: 400;
     display: flex;
     flex-direction: column;
     transition: top 0.3s ease-in;
@@ -59,13 +80,30 @@ const DropdownItemsWrapper = styled.div`
     }
 `;
 
-const DropdownItem = styled.button`
-    padding: 15px 0 15px 2rem;
-    height: fit-content;
+const Item = styled.a`
+    padding: 15px 0 15px 20px;
     font-weight: 700;
-    font-size: calc(1.5rem + 0.5vh);
-    @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
-        font-size: 2.5rem;
-        padding-left: 4rem;
+    border: 0;
+
+    font-weight: 400;
+    font-size: ${({ theme }) => theme.font.size.normal};
+    color: ${({ theme }) => theme.palette.primary.fg};
+
+    text-decoration: none;
+
+    border-top: 1px solid ${({ theme }) => theme.palette.divider}AA;
+
+    &.last {
+        border-bottom: 1px solid ${({ theme }) => theme.palette.divider}AA;
     }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.small}) {
+        padding-left: 4rem;
+
+        font-size: ${({ theme }) => theme.font.size.medium};
+    }
+`;
+
+const Divider = styled.div`
+    height: 50px;
 `;
