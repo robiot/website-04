@@ -29,7 +29,10 @@ export const Projects: FC = () => {
                     <UnderText>
                         Much more can be found on my{" "}
                         <LinkWrapper>
-                            <Hyperlink href="https://github.com/robiot">
+                            <Hyperlink
+                                href="https://github.com/robiot"
+                                target="_blank"
+                            >
                                 Github
                             </Hyperlink>
                         </LinkWrapper>
