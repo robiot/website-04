@@ -8,9 +8,7 @@ export const About: FC = () => {
         <Wrapper id="about">
             <Container size="medium">
                 <ContentWrapper>
-                    <Text>
-                        {PrimaryText}
-                    </Text>
+                    <Text>{PrimaryText}</Text>
                     <Text>
                         But I don't just do code related stuff. I also love to
                         play music and I play both piano{" "}
