@@ -26,7 +26,12 @@ export const Navbar = () => {
 
     return (
         <>
-            <Wrapper className={cx(isTop && !dropdownActive && "scrolled")}>
+            <Wrapper
+                className={cx(
+                    isTop && "scrolled",
+                    dropdownActive && "scrolled"
+                )}
+            >
                 <Container size="large">
                     <SpaceBetween>
                         <SiteBanner />

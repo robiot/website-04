@@ -44,7 +44,7 @@ export const Dropdown: FC<{
 };
 
 const Wrapper = styled.div`
-    background-color: ${({ theme }) => theme.palette.primary.bg.to};
+    background-color: ${({ theme }) => theme.palette.primary.bg.from};
     height: 100%;
     top: -100%;
     position: fixed;
