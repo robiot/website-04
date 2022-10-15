@@ -34,7 +34,7 @@ export const LinksData: LinksDataType = [
 export const LinksSection2Data: LinksDataType = [
     {
         name: "Blog",
-        to: "https://old.robiot.dev/blog",
+        to: "https://blog.robiot.dev",
     },
 ];
 
