@@ -47,7 +47,6 @@ const Wrapper = styled.footer`
     border-top: 1px solid ${({ theme }) => theme.palette.divider}44;
     display: flex;
     width: 100%;
-    /* margin-top: 100px; */
 `;
 
 const Content = styled.div`
