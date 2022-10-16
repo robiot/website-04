@@ -12,13 +12,7 @@ export const FooterLinks: FC = () => {
                 <Items>
                     <NavLinks
                         flexDirection="column"
-                        links={LinksData}
-                        section2
-                        marginBottom={10}
-                    />
-                    <NavLinks
-                        flexDirection="column"
-                        links={LinksSection2Data}
+                        links={[...LinksData, ...LinksSection2Data]}
                         section2
                         marginBottom={10}
                     />

@@ -1,5 +1,7 @@
 import { Container } from "@components/Common/Container/Container";
 import { NavbarHeight } from "@lib/constants";
+import { popUpFromBottomForText } from "@lib/framerMotionVariants";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { FC } from "react";
 import { FaAngleDown } from "react-icons/fa";
@@ -15,8 +17,13 @@ export const Home: FC = () => {
             <HomePolygons />
 
             <Container size="medium">
-                <ContentWrapper>
+                <ContentWrapper
+                    initial="hidden"
+                    animate="visible"
+                    variants={popUpFromBottomForText}
+                >
                     <Title>Hello, I'm Elliot.</Title>
+
                     <SubTitle>
                         A 15 year old Web and Software developer.
                     </SubTitle>
@@ -54,7 +61,7 @@ const Wrapper = styled.div`
     overflow-x: clip;
 `;
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;

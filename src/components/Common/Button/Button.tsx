@@ -1,13 +1,20 @@
+import { motion } from "framer-motion";
 import { ComponentProps, FC, ReactNode } from "react";
 import styled from "styled-components";
 
 export const Button: FC<ComponentProps<"button"> & { children: ReactNode }> = (
     properties
 ) => {
-    return <Wrapper {...(properties as any)}></Wrapper>;
+    return (
+        <Wrapper
+            {...(properties as any)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+        ></Wrapper>
+    );
 };
 
-const Wrapper = styled.button`
+const Wrapper = styled(motion.button)`
     background-color: ${({ theme }) => theme.palette.button.bg};
     color: ${({ theme }) => theme.palette.button.fg};
 

@@ -1,26 +1,39 @@
 import { LanguagesData, OtherData, TechnologiesData } from "@lib/constants";
+import { FadeContainer, popUp } from "@lib/framerMotionVariants";
 import { cx } from "@lib/utils";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC } from "react";
 import styled from "styled-components";
 
 const getItems = (itemtype: { name: string; image: string }[]) => {
-    return itemtype.map((item, index) => {
-        return (
-            <Item
-                key={index}
-                className={cx(index == itemtype.length - 1 && "last")}
-            >
-                <Image
-                    height={30}
-                    width={30}
-                    alt={item.name}
-                    src={`/img/skills/${item.image}`}
-                />
-                {item.name}
-            </Item>
-        );
-    });
+    return (
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={FadeContainer}
+            viewport={{ once: true }}
+        >
+            {itemtype.map((item, index) => {
+                return (
+                    <Item
+                        style={{ transitionDuration: ".4s" }}
+                        variants={popUp}
+                        key={index}
+                        className={cx(index == itemtype.length - 1 && "last")}
+                    >
+                        <Image
+                            height={30}
+                            width={30}
+                            alt={item.name}
+                            src={`/img/skills/${item.image}`}
+                        />
+                        {item.name}
+                    </Item>
+                );
+            })}
+        </motion.div>
+    );
 };
 
 export const SkillsTable: FC = () => {
@@ -71,13 +84,16 @@ const Column = styled.div`
 const ColumnTitle = styled.h2`
     text-align: center;
     margin-bottom: ${fromTop};
+    color: ${({ theme }) => theme.palette.accent.on};
 
     @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        color: ${({ theme }) => theme.palette.primary.fg};
+
         margin-bottom: 10px;
     }
 `;
 
-const Item = styled.div`
+const Item = styled(motion.div)`
     display: flex;
     align-items: center;
     gap: 15px;

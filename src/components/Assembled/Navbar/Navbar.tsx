@@ -13,7 +13,7 @@ export const Navbar = () => {
     const [dropdownActive, setDropdownActive] = useState(false);
 
     const handleScroll = () => {
-        setIsTop(window.scrollY >= 66);
+        setIsTop(window.scrollY >= 10);
     };
 
     useEffect(() => {
@@ -45,6 +45,7 @@ export const Navbar = () => {
                         </Items>
 
                         <ToggleDropdown
+                            aria-label="Toggle dropdown"
                             className={cx(dropdownActive && "open")}
                             onClick={() => {
                                 setDropdownActive(!dropdownActive);
@@ -58,10 +59,12 @@ export const Navbar = () => {
                 </Container>
             </Wrapper>
 
-            <Dropdown
-                dropdownActive={dropdownActive}
-                setDropdownActive={setDropdownActive}
-            />
+            {dropdownActive && (
+                <Dropdown
+                    dropdownActive={dropdownActive}
+                    setDropdownActive={setDropdownActive}
+                />
+            )}
         </>
     );
 };

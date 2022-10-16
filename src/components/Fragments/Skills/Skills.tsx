@@ -8,6 +8,8 @@ import { SkillsTable } from "./SkillsTable/SkillsTable";
 export const Skills: FC = () => {
     return (
         <Wrapper id="skills">
+            <LeftTilt />
+            <RightTilt />
             <SkillsPolygons />
             <Container size="xlarge" noPadding>
                 <TitleBlock>
@@ -32,6 +34,28 @@ const Wrapper = styled.section`
     scroll-margin-top: 40px;
 `;
 
+const LeftTilt = styled.div`
+    position: absolute;
+    z-index: -1;
+    left: -5px;
+    top: -10%;
+    width: 50%;
+    height: 230px;
+    background-color: ${({ theme }) => theme.palette.section[1].bg};
+    /* transform: rotate(3deg); */
+`;
+
+const RightTilt = styled.div`
+    position: absolute;
+    z-index: -1;
+    right: -5px;
+    top: -10%;
+    width: 50%;
+    height: 230px;
+    background-color: ${({ theme }) => theme.palette.section[1].bg};
+    /* transform: rotate(3deg); */
+`;
+
 const TitleBlock = styled.div`
     background-color: ${({ theme }) => theme.palette.accent.yellow};
     padding: 50px 0 100px 0;
@@ -49,4 +73,5 @@ const Content = styled.div`
 
 const Title = styled.h2`
     font-size: ${({ theme }) => theme.font.size.xlarge};
+    color: ${({ theme }) => theme.palette.accent.on};
 `;

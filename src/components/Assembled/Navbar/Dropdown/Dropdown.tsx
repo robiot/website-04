@@ -1,5 +1,10 @@
 import { LinksData, LinksDataType, LinksSection2Data } from "@lib/constants";
+import {
+    FadeContainer,
+    mobileNavItemSideways,
+} from "@lib/framerMotionVariants";
 import { cx } from "@lib/utils";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Dispatch, FC, SetStateAction } from "react";
 import styled from "styled-components";
@@ -13,6 +18,7 @@ const getLinks = (
             <Link href={link.to} passHref key={`dropdown_link:${link.name}`}>
                 {/* eslint-disable-next-line styled-components-a11y/anchor-is-valid, styled-components-a11y/anchor-is-valid, styled-components-a11y/click-events-have-key-events*/}
                 <Item
+                    variants={mobileNavItemSideways}
                     className={cx(index == links.length - 1 && "last")}
                     onClick={() => {
                         setDropdownActive(false);
@@ -33,7 +39,14 @@ export const Dropdown: FC<{
 }> = (properties) => {
     return (
         <Wrapper className={properties.dropdownActive ? "open" : ""}>
-            <DropdownItemsWrapper>
+            <DropdownItemsWrapper
+                initial="hidden"
+                whileInView="visible"
+                variants={FadeContainer}
+                animate="visible"
+                exit="hidden"
+                // viewport={{ once: true }}
+            >
                 {getLinks(LinksData, properties.setDropdownActive)}
 
                 <Divider />
@@ -46,30 +59,22 @@ export const Dropdown: FC<{
 const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.palette.primary.bg.from};
     height: 100%;
-    top: -100%;
-    position: fixed;
     width: 100%;
+
+    position: fixed;
     left: 0;
     z-index: 400;
+
     display: flex;
     flex-direction: column;
-    transition: top 0.3s ease-in;
+
+    top: 0;
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
         display: none;
     }
-    &.open {
-        top: 0;
-    }
-    & * {
-        transition: opacity 0.6s ease-out;
-        opacity: 0;
-    }
-    &.open * {
-        opacity: 1;
-    }
 `;
 
-const DropdownItemsWrapper = styled.div`
+const DropdownItemsWrapper = styled(motion.div)`
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -80,7 +85,7 @@ const DropdownItemsWrapper = styled.div`
     }
 `;
 
-const Item = styled.a`
+const Item = styled(motion.a)`
     padding: 15px 0 15px 20px;
     font-weight: 700;
     border: 0;

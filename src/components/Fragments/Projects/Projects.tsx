@@ -1,6 +1,8 @@
 import { Container } from "@components/Common/Container/Container";
 import { Hyperlink } from "@components/Common/Hyperlink/Hyperlink";
 import { ProjectsData } from "@lib/constants";
+import { popUp } from "@lib/framerMotionVariants";
+import { motion } from "framer-motion";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -16,6 +18,10 @@ export const Projects: FC = () => {
                         {ProjectsData.map((project, index) => {
                             return (
                                 <CardWrapper
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    variants={popUp}
+                                    viewport={{ once: true }}
                                     style={{
                                         marginTop: index == 1 ? "30px" : "",
                                     }}
@@ -66,7 +72,7 @@ const CardsWrapper = styled.div`
     }
 `;
 
-const CardWrapper = styled.div`
+const CardWrapper = styled(motion.div)`
     width: 100%;
     @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
         margin: 0 !important;

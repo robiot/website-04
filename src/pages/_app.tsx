@@ -1,14 +1,22 @@
 import "nprogress/nprogress.css";
 
-import { LightTheme } from "@lib/theme";
+import { AppThemeProvider, useAppTheme } from "@context/themeContext";
+import { DarkTheme, LightTheme } from "@lib/theme";
 import type { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { FC, ReactNode } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
+
+// NProgress.configure({
+//     easing: "ease",
+//     speed: 800,
+//     showSpinner: false,
+// });
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -24,13 +32,6 @@ const GlobalStyle = createGlobalStyle`
 
         margin: 0;
     }
-
-    /* html {
-        scroll-behavior: smooth;
-    } */
-    /* body {
-        contain: paint;
-    } */
 
     body {
         font-family: 'Noto Sans', sans-serif;
@@ -62,9 +63,21 @@ const GlobalStyle = createGlobalStyle`
 
 const CustomApp = (properties: AppProps) => {
     return (
-        <ThemeProvider theme={LightTheme}>
+        <AppThemeProvider>
+            <Content>
+                <properties.Component {...properties.pageProps} />
+            </Content>
+        </AppThemeProvider>
+    );
+};
+
+const Content: FC<{ children?: ReactNode }> = (properties) => {
+    const theme = useAppTheme();
+
+    return (
+        <ThemeProvider theme={theme.theme == "dark" ? DarkTheme : LightTheme}>
             <GlobalStyle />
-            <properties.Component {...properties.pageProps} />
+            {properties.children}
         </ThemeProvider>
     );
 };

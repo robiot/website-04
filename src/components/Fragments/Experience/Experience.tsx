@@ -1,5 +1,7 @@
 import { Container } from "@components/Common/Container/Container";
 import { ExperiencesData } from "@lib/constants";
+import { FadeContainer } from "@lib/framerMotionVariants";
+import { motion } from "framer-motion";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -12,7 +14,12 @@ export const Experience: FC = () => {
                 <ContentWrapper>
                     <Title>Experience</Title>
 
-                    <ExperiencesWrapper>
+                    <ExperiencesWrapper
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={FadeContainer}
+                        viewport={{ once: true }}
+                    >
                         {ExperiencesData.map((item, index) => {
                             return (
                                 <ExperienceItem
@@ -59,7 +66,7 @@ const Title = styled.h2`
     }
 `;
 
-const ExperiencesWrapper = styled.div`
+const ExperiencesWrapper = styled(motion.div)`
     display: flex;
     flex-direction: column;
     gap: 20px;

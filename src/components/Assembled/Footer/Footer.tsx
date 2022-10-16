@@ -1,11 +1,15 @@
 import { Container } from "@components/Common/Container/Container";
 import { Hyperlink } from "@components/Common/Hyperlink/Hyperlink";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
+import { useAppTheme } from "@context/themeContext";
+import { FaAngleUp, FaLaptop } from "react-icons/fa";
 import styled from "styled-components";
 
 import { FooterLinks } from "./FooterLinks/FooterLinks";
 
 export const Footer = () => {
+    const theme = useAppTheme();
+
     return (
         <Wrapper>
             <Container size="large" noPadding>
@@ -18,8 +22,9 @@ export const Footer = () => {
                         <Text>
                             Copyright © 2022 Robiot. All rights reserved.
                         </Text>
+
+                        <Text>Made without ♥ in Next.js {";)"}</Text>
                         <Text>
-                            Made without ♥ in Next.js {";)"}
                             <LinkWrapper>
                                 <Hyperlink
                                     href="https://github.com/robiot/website"
@@ -29,6 +34,27 @@ export const Footer = () => {
                                 </Hyperlink>
                             </LinkWrapper>
                         </Text>
+                        <ThemeSwitcherWrapper>
+                            <ThemeSwitcherActiveIconWrapper>
+                                <FaLaptop />
+                            </ThemeSwitcherActiveIconWrapper>
+                            {/* eslint-disable-next-line styled-components-a11y/no-onchange */}
+                            <ThemeSwitcher
+                                value={theme.savedTheme}
+                                onChange={(event) => {
+                                    theme.changeTheme(
+                                        event.target.value as any
+                                    );
+                                }}
+                            >
+                                <option value="system">System</option>
+                                <option value="dark">Dark</option>
+                                <option value="light">Light</option>
+                            </ThemeSwitcher>
+                            <ThemeSwitcherRightIcon>
+                                <FaAngleUp />
+                            </ThemeSwitcherRightIcon>
+                        </ThemeSwitcherWrapper>
                     </Bottom>
                 </Content>
             </Container>
@@ -78,6 +104,7 @@ const Bottom = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 50px;
 
@@ -96,4 +123,42 @@ const Text = styled.span`
 const LinkWrapper = styled.span`
     color: ${({ theme }) => theme.palette.link};
     margin-left: 10px;
+`;
+
+const ThemeSwitcherWrapper = styled.div`
+    font-size: ${({ theme }) => theme.font.size.small};
+    background-color: ${({ theme }) => theme.palette.primary.bg.from};
+    border: 1px solid ${({ theme }) => theme.palette.divider};
+    position: relative;
+`;
+
+const ThemeSwitcherActiveIconWrapper = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: ${({ theme }) => theme.palette.primary.fg};
+    padding-left: 14px;
+`;
+
+const ThemeSwitcherRightIcon = styled.div`
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: ${({ theme }) => theme.palette.primary.fg};
+    padding-right: 14px;
+`;
+
+const ThemeSwitcher = styled.select`
+    appearance: none;
+    padding: 10px 40px;
+    font-size: ${({ theme }) => theme.font.size.small};
+    background-color: ${({ theme }) => theme.palette.primary.bg.from};
+    color: ${({ theme }) => theme.palette.primary.fg};
+    border: 0;
 `;

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ComponentProps, FC, ReactNode } from "react";
 import styled from "styled-components";
@@ -8,12 +9,16 @@ export const LinkButton: FC<
     return (
         <Link href={properties.href} passHref>
             {/* eslint-disable-next-line styled-components-a11y/anchor-has-content */}
-            <Wrapper {...(properties as any)} />
+            <Wrapper
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.9 }}
+                {...(properties as any)}
+            />
         </Link>
     );
 };
 
-const Wrapper = styled.a`
+const Wrapper = styled(motion.a)`
     background-color: ${({ theme }) => theme.palette.button.bg};
     color: ${({ theme }) => theme.palette.button.fg};
 

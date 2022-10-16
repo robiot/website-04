@@ -14,6 +14,7 @@ declare module "styled-components" {
             };
 
             accent: {
+                on: string;
                 teal: string;
                 yellow: string;
                 purple: string;

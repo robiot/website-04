@@ -1,4 +1,6 @@
 import { ExperiencesDataType } from "@lib/constants";
+import { popUp } from "@lib/framerMotionVariants";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC } from "react";
 import styled from "styled-components";
@@ -7,7 +9,7 @@ export const ExperienceItem: FC<{ item: ExperiencesDataType[any] }> = (
     properties
 ) => {
     return (
-        <Wrapper>
+        <Wrapper variants={popUp} style={{ transitionDuration: "0.5s" }}>
             <ImageWrapper>
                 <Image
                     height={60}
@@ -29,7 +31,7 @@ export const ExperienceItem: FC<{ item: ExperiencesDataType[any] }> = (
     );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
     display: flex;
     gap: 30px;
     align-items: center;

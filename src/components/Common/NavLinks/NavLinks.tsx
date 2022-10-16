@@ -1,5 +1,7 @@
 import { LinksDataType } from "@lib/constants";
+import { FadeContainer, popUp } from "@lib/framerMotionVariants";
 import { cx } from "@lib/utils";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { FC } from "react";
 import styled from "styled-components";
@@ -11,7 +13,11 @@ export const NavLinks: FC<{
     marginBottom?: number | string;
 }> = (properties) => {
     return (
-        <div
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={FadeContainer}
+            viewport={{ once: true }}
             style={{
                 display: "flex",
                 flexDirection: properties.flexDirection
@@ -26,6 +32,7 @@ export const NavLinks: FC<{
                         <Item
                             className={cx(properties.section2 && "section2")}
                             tabIndex={0}
+                            variants={popUp}
                             style={{
                                 marginBottom: properties.marginBottom,
                             }}
@@ -36,7 +43,7 @@ export const NavLinks: FC<{
                     </Link>
                 );
             })}
-        </div>
+        </motion.div>
     );
 };
 
@@ -46,7 +53,7 @@ const Text = styled.span`
     flex: 1;
 `;
 
-const Item = styled.a`
+const Item = styled(motion.a)`
     display: flex;
     align-items: center;
     text-decoration: none;

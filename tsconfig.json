@@ -29,6 +29,9 @@
       "@assets/*": [
         "src/assets/*"
       ],
+      "@context/*": [
+        "src/context/*"
+      ],
     }
   },
   "include": [
