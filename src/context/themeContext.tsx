@@ -9,7 +9,7 @@ import {
 
 type Themes = "light" | "dark" | "system";
 
-export type RawThemes = "light" | "dark";
+type RawThemes = "light" | "dark";
 
 const ThemeContext = createContext<
     | {
@@ -21,23 +21,7 @@ const ThemeContext = createContext<
 >(undefined);
 
 export const AppThemeProvider: FC<{ children?: ReactNode }> = (properties) => {
-    const [theme, setTheme] = useState<RawThemes>(() => {
-        // return (window as any).theme;
-        // console.log(typeof window);
-
-        if (typeof window !== "undefined") {
-            return (window as any).theme;
-        }
-
-        // return "light";
-        // if (typeof window !== "undefined") {
-        //     return localStorage.getItem("theme") != undefined
-        //         ? (localStorage.getItem("theme") as RawThemes)
-        //         : "dark";
-        // } else {
-        //     return "light";
-        // }
-    });
+    const [theme, setTheme] = useState<RawThemes>();
     const [savedTheme, setSavedTheme] = useState<Themes>("system");
 
     const updateTheme = () => {
