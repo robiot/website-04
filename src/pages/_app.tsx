@@ -19,10 +19,6 @@ Router.events.on("routeChangeError", () => NProgress.done());
 // });
 
 const GlobalStyle = createGlobalStyle`
-    :root {
-        color-scheme: ${({ theme }) => theme.theme};
-    }
-
     * { 
         box-sizing: border-box;
     }
@@ -35,11 +31,6 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Noto Sans', sans-serif;
-
-        background: linear-gradient(202deg, ${({ theme }) =>
-            theme.palette.primary.bg.from} 3.15%, ${({ theme }) =>
-    theme.palette.primary.bg.to} 121%), ${({ theme }) =>
-    theme.palette.primary.bg.to}; 
     }
 
     html:focus-within {
@@ -61,13 +52,33 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const GlobalStyleAfterLoad = createGlobalStyle`
+    :root {
+        color-scheme: ${({ theme }) => theme.theme};
+    }
+
+    body {
+        background: linear-gradient(202deg, ${({ theme }) =>
+            theme.palette.primary.bg.from} 3.15%, ${({ theme }) =>
+    theme.palette.primary.bg.to} 121%), ${({ theme }) =>
+    theme.palette.primary.bg.to} !important;
+    }
+`;
+
+// background: linear-gradient(202deg, ${({ theme }) =>
+// theme.palette.primary.bg.from} 3.15%, ${({ theme }) =>
+// theme.palette.primary.bg.to} 121%), ${({ theme }) =>
+// theme.palette.primary.bg.to};
+
 const CustomApp = (properties: AppProps) => {
     return (
-        <AppThemeProvider>
-            <Content>
-                <properties.Component {...properties.pageProps} />
-            </Content>
-        </AppThemeProvider>
+        <>
+            <AppThemeProvider>
+                <Content>
+                    <properties.Component {...properties.pageProps} />
+                </Content>
+            </AppThemeProvider>
+        </>
     );
 };
 
@@ -77,6 +88,8 @@ const Content: FC<{ children?: ReactNode }> = (properties) => {
     return (
         <ThemeProvider theme={theme.theme == "dark" ? DarkTheme : LightTheme}>
             <GlobalStyle />
+            {theme.theme != undefined && <GlobalStyleAfterLoad />}
+
             {properties.children}
         </ThemeProvider>
     );

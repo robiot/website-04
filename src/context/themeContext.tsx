@@ -13,7 +13,7 @@ type RawThemes = "light" | "dark";
 
 const ThemeContext = createContext<
     | {
-          theme: RawThemes; // "dark" | "light"
+          theme?: RawThemes; // "dark" | "light"
           savedTheme: Themes; // "dark" | "light" | "system"
           changeTheme: (_: Themes) => void;
       }
@@ -21,7 +21,7 @@ const ThemeContext = createContext<
 >(undefined);
 
 export const AppThemeProvider: FC<{ children?: ReactNode }> = (properties) => {
-    const [theme, setTheme] = useState<RawThemes>("dark");
+    const [theme, setTheme] = useState<RawThemes>();
     const [savedTheme, setSavedTheme] = useState<Themes>("system");
 
     const updateTheme = () => {
