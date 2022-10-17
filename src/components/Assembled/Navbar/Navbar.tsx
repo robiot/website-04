@@ -59,12 +59,10 @@ export const Navbar = () => {
                 </Container>
             </Wrapper>
 
-            {dropdownActive && (
-                <Dropdown
-                    dropdownActive={dropdownActive}
-                    setDropdownActive={setDropdownActive}
-                />
-            )}
+            <Dropdown
+                dropdownActive={dropdownActive}
+                setDropdownActive={setDropdownActive}
+            />
         </>
     );
 };

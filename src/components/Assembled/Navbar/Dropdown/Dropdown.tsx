@@ -39,19 +39,21 @@ export const Dropdown: FC<{
 }> = (properties) => {
     return (
         <Wrapper className={properties.dropdownActive ? "open" : ""}>
-            <DropdownItemsWrapper
-                initial="hidden"
-                whileInView="visible"
-                variants={FadeContainer}
-                animate="visible"
-                exit="hidden"
-                // viewport={{ once: true }}
-            >
-                {getLinks(LinksData, properties.setDropdownActive)}
+            {properties.dropdownActive && (
+                <DropdownItemsWrapper
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={FadeContainer}
+                    animate="visible"
+                    exit="hidden"
+                    // viewport={{ once: true }}
+                >
+                    {getLinks(LinksData, properties.setDropdownActive)}
 
-                <Divider />
-                {getLinks(LinksSection2Data, properties.setDropdownActive)}
-            </DropdownItemsWrapper>
+                    <Divider />
+                    {getLinks(LinksSection2Data, properties.setDropdownActive)}
+                </DropdownItemsWrapper>
+            )}
         </Wrapper>
     );
 };
@@ -68,9 +70,19 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    top: 0;
+    transition: top 0.2s ease-in-out;
+
+    top: -100%;
     @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
         display: none;
+    }
+
+    &.open {
+        top: 0;
+    }
+
+    &.open * {
+        opacity: 1;
     }
 `;
 
