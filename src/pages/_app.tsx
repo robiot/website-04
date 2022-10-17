@@ -1,12 +1,20 @@
 import "nprogress/nprogress.css";
 
-import { AppThemeProvider, useAppTheme } from "@context/themeContext";
+import {
+    AppThemeProvider,
+    RawThemes,
+    useAppTheme,
+} from "@context/themeContext";
 import { DarkTheme, LightTheme } from "@lib/theme";
 import type { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { FC, ReactNode } from "react";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import {
+    createGlobalStyle,
+    DefaultTheme,
+    ThemeProvider,
+} from "styled-components";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -50,9 +58,7 @@ const GlobalStyle = createGlobalStyle`
     #nprogress .spinner, #nprogress .spinner-icon {
         display: none;
     }
-`;
 
-const GlobalStyleAfterLoad = createGlobalStyle`
     :root {
         color-scheme: ${({ theme }) => theme.theme};
     }
@@ -70,11 +76,18 @@ const GlobalStyleAfterLoad = createGlobalStyle`
 // theme.palette.primary.bg.to} 121%), ${({ theme }) =>
 // theme.palette.primary.bg.to};
 
-const CustomApp = (properties: AppProps) => {
+const CustomApp = (properties: AppProps & { theme: RawThemes }) => {
     return (
         <>
             <AppThemeProvider>
-                <Content>
+                <ThemeProvider
+                    theme={properties.theme == "dark" ? DarkTheme : LightTheme}
+                >
+                    <GlobalStyle />
+                    {/* {theme.theme != undefined && <GlobalStyleAfterLoad />} */}
+                </ThemeProvider>
+
+                <Content initialTheme={properties.theme}>
                     <properties.Component {...properties.pageProps} />
                 </Content>
             </AppThemeProvider>
@@ -82,13 +95,23 @@ const CustomApp = (properties: AppProps) => {
     );
 };
 
-const Content: FC<{ children?: ReactNode }> = (properties) => {
+const Content: FC<{ children?: ReactNode; initialTheme: RawThemes }> = (
+    properties
+) => {
     const theme = useAppTheme();
 
+    let themeToUse: DefaultTheme;
+
+    if (theme.theme == undefined) {
+        themeToUse = properties.initialTheme == "dark" ? DarkTheme : LightTheme;
+    } else {
+        themeToUse = theme.theme == "dark" ? DarkTheme : LightTheme;
+    }
+
     return (
-        <ThemeProvider theme={theme.theme == "dark" ? DarkTheme : LightTheme}>
+        <ThemeProvider theme={themeToUse}>
             <GlobalStyle />
-            {theme.theme != undefined && <GlobalStyleAfterLoad />}
+            {/* {theme.theme != undefined && <GlobalStyleAfterLoad />} */}
 
             {properties.children}
         </ThemeProvider>

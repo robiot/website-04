@@ -13,32 +13,95 @@ body {
 `;
 
 const initColorModeScript = `
-console.log("Hello worlddd");
+// function body_loaded() {
+//     const nextDataElement = document.getElementById("__NEXT_DATA__");
+//     var elementContent = JSON.parse(nextDataElement.innerHTML);
+//     elementContent.props.theme = ""
+// }
 
-    const selectedColorTheme_init = localStorage.getItem("theme");
-    
-    let themeRaw_init;
-    
-    if (!selectedColorTheme_init || selectedColorTheme_init == "system") {
-        themeRaw_init = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-    } else {
-        themeRaw_init = selectedColorTheme_init;
-    }
+// document.addEventListener("DOMContentLoaded", function(event) { 
+//    body_loaded();
+// });
 
-    if (themeRaw_init == "light") {
-        console.log("Setting initial theme to light. Hey, be careful with your eyes.")
-        document.documentElement.style.setProperty("--background-from", "#F6F1F5")
-        document.documentElement.style.setProperty("--background-to", "#ECEFF6")
-        document.documentElement.style.setProperty("--color-scheme", "light")
-    } else if (themeRaw_init == "dark") {
-        console.log("Setting initial theme to dark. Eyes are happy.")
-        document.documentElement.style.setProperty("--background-from", "#000000")
-        document.documentElement.style.setProperty("--background-to", "#000000")
-        document.documentElement.style.setProperty("--color-scheme", "dark")
+// document.body = document.createElement("body");
+
+const selectedColorTheme_init = localStorage.getItem("theme");
+
+let themeRaw_init;
+
+if (!selectedColorTheme_init || selectedColorTheme_init == "system") {
+    themeRaw_init = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+} else {
+    themeRaw_init = selectedColorTheme_init;
+}
+
+if (themeRaw_init == "light") {
+    console.log("Setting initial theme to light. Hey, be careful with your eyes.")
+    document.documentElement.style.setProperty("--background-from", "#F6F1F5")
+    document.documentElement.style.setProperty("--background-to", "#ECEFF6")
+    document.documentElement.style.setProperty("--color-scheme", "light")
+} else if (themeRaw_init == "dark") {
+    console.log("Setting initial theme to dark. Eyes are happy.")
+    document.documentElement.style.setProperty("--background-from", "#000000")
+    document.documentElement.style.setProperty("--background-to", "#000000")
+    document.documentElement.style.setProperty("--color-scheme", "dark")
+}
+
+let props = Object.keys(window);
+const check = () => {
+    const currentProps = Object.keys(window);
+    const newProps = currentProps.filter(item => props.indexOf(item) === -1);
+    if (newProps.length) {
+        if (newProps.includes("__NEXT_DATA__")) {
+            console.log('Added these properties', newProps);
+            window.__NEXT_DATA__.props.theme = themeRaw_init;
+        }
+        props = currentProps;
     }
-    `;
+    requestAnimationFrame(check);
+};
+requestAnimationFrame(check);
+
+
+
+
+// var custom_next_data = document.createElement('script');
+
+// custom_next_data.setAttribute("id", "__NEXT_DATA__");
+
+// const inlineScript = document.createTextNode('{"props":{"pageProps":{},"theme":"dark"},"page":"/","query":{},"buildId":"0sVKgmmjvfDv7SbyG4KIu","isFallback":false,"appGip":true,"scriptLoader":[]}')
+// custom_next_data.appendChild(inlineScript);
+
+// document.head.appendChild(custom_next_data);
+`;
+
+// const selectedColorTheme_init = localStorage.getItem("theme");
+
+// let themeRaw_init;
+
+// if (!selectedColorTheme_init || selectedColorTheme_init == "system") {
+//     themeRaw_init = window.matchMedia("(prefers-color-scheme: dark)").matches
+//         ? "dark"
+//         : "light";
+// } else {
+//     themeRaw_init = selectedColorTheme_init;
+// }
+
+// window.theme = themeRaw_init;
+
+// if (themeRaw_init == "light") {
+//     console.log("Setting initial theme to light. Hey, be careful with your eyes.")
+//     document.documentElement.style.setProperty("--background-from", "#F6F1F5")
+//     document.documentElement.style.setProperty("--background-to", "#ECEFF6")
+//     document.documentElement.style.setProperty("--color-scheme", "light")
+// } else if (themeRaw_init == "dark") {
+//     console.log("Setting initial theme to dark. Eyes are happy.")
+//     document.documentElement.style.setProperty("--background-from", "#000000")
+//     document.documentElement.style.setProperty("--background-to", "#000000")
+//     document.documentElement.style.setProperty("--color-scheme", "dark")
+// }
 
 const MainDocument = () => {
     return (
@@ -56,7 +119,15 @@ const MainDocument = () => {
                     rel="stylesheet"
                 />
             </Head>
-            <body>
+            <body
+                onLoad={() => {
+                    console.log("load window?");
+
+                    if (typeof window !== "undefined") {
+                        (window as any).body_loaded;
+                    }
+                }}
+            >
                 <Script
                     id="theme_init"
                     strategy="beforeInteractive"
