@@ -26,7 +26,7 @@ jobs:
         - name: Build
           run: pnpm run static
         - name: Edgeserver Upload
-          uses: lvkdotsh/edgeserver-action@v0.0.34
+          uses: lvkdotsh/edgeserver-action@master
           with:
             app_id: "105201893495541760"
             server: https://api.edgeserver.io
