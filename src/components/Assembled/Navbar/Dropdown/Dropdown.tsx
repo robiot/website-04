@@ -1,9 +1,9 @@
-import { LinksData, LinksDataType, LinksSection2Data } from "@lib/constants";
+import { LinksData, LinksDataType, LinksSection2Data } from "src/utils/constants";
 import {
     FadeContainer,
     mobileNavItemSideways,
-} from "@lib/framerMotionVariants";
-import { cx } from "@lib/utils";
+} from "src/utils/framerMotionVariants";
+import { cx } from "src/utils/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Dispatch, FC, SetStateAction } from "react";

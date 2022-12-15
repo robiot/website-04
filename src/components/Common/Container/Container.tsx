@@ -1,44 +1,30 @@
-import { cx } from "@lib/utils";
+import { cx } from "@utils/cx";
 import { FC, ReactNode } from "react";
-import styled from "styled-components";
 
 export const Container: FC<{
     children: ReactNode;
-    size: "large" | "medium" | "xlarge";
+    className?: string;
     noPadding?: boolean;
+    size?: "large" | "small";
 }> = (properties) => {
     return (
-        <Wrapper
+        <div
             className={cx(
-                properties.size,
-                properties.noPadding && "no-padding"
+                "h-full flex w-full",
+                !properties.noPadding && "px-4"
             )}
         >
-            {properties.children}
-        </Wrapper>
+            <div
+                className={cx(
+                    "w-full mx-auto",
+                    properties.size == undefined || properties.size == "large"
+                        ? "max-w-4xl"
+                        : "max-w-md",
+                    properties.className
+                )}
+            >
+                {properties.children}
+            </div>
+        </div>
     );
 };
-
-const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-
-    margin: 0 auto;
-    padding: 10px 20px;
-
-    &.xlarge {
-        max-width: ${({ theme }) => theme.container.xlarge};
-    }
-
-    &.large {
-        max-width: ${({ theme }) => theme.container.large};
-    }
-
-    &.medium {
-        max-width: ${({ theme }) => theme.container.medium};
-    }
-
-    &.no-padding {
-        padding: 0;
-    }
-`;

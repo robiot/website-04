@@ -1,8 +1,8 @@
 import { Container } from "@components/Common/Container/Container";
 import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import { LinksData, LinksSection2Data, NavbarHeight } from "@lib/constants";
-import { cx } from "@lib/utils";
+import { LinksData, LinksSection2Data, NavbarHeight } from "src/utils/constants";
+import { cx } from "src/utils/utils";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 

@@ -23,14 +23,14 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@lib/*": [
-        "src/lib/*"
+      "@utils/*": [
+        "src/utils/*"
       ],
       "@assets/*": [
         "src/assets/*"
       ],
-      "@context/*": [
-        "src/context/*"
+      "@styles/*": [
+        "src/styles/*"
       ],
     }
   },

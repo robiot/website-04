@@ -1,4 +1,4 @@
-import { ContactData, LinksData, LinksSection2Data } from "@lib/constants";
+import { ContactData, LinksData, LinksSection2Data } from "src/utils/constants";
 import { FC } from "react";
 import styled from "styled-components";
 

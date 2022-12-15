@@ -1,12 +1,8 @@
 import { Layout } from "@components/Assembled/Layout/Layout";
-import { About } from "@components/Fragments/About/About";
-import { Experience } from "@components/Fragments/Experience/Experience";
 import { Home } from "@components/Fragments/Home/Home";
-import { Projects } from "@components/Fragments/Projects/Projects";
-import { Skills } from "@components/Fragments/Skills/Skills";
-import { PrimaryText } from "@lib/constants";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
+import { PrimaryText } from "src/utils/constants";
 
 const IndexPage: NextPage = () => {
     return (
@@ -35,12 +31,11 @@ const IndexPage: NextPage = () => {
                 }}
             />
 
-            {/* <div style={{ height: "150vh" }}>aa</div> */}
             <Home />
-            <About />
+            {/* <About />
             <Skills />
             <Experience />
-            <Projects />
+            <Projects /> */}
         </Layout>
     );
 };
