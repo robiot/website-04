@@ -5,25 +5,21 @@ export const Container: FC<{
     children: ReactNode;
     className?: string;
     noPadding?: boolean;
-    size?: "large" | "small";
-}> = (properties) => {
+    size?: "xlarge" | "large" | "small";
+}> = ({ children, className, noPadding, size = "large" }) => {
     return (
-        <div
-            className={cx(
-                "h-full flex w-full",
-                !properties.noPadding && "px-6"
-            )}
-        >
+        <div className={cx("h-full flex w-full", !noPadding && "px-6")}>
             <div
                 className={cx(
                     "w-full mx-auto",
-                    properties.size == undefined || properties.size == "large"
-                        ? "max-w-4xl"
-                        : "max-w-md",
-                    properties.className
+                    size == "xlarge" && "max-w-6xl",
+                    size == "large" && "max-w-4xl",
+                    size == "small" && "max-w-md",
+
+                    className
                 )}
             >
-                {properties.children}
+                {children}
             </div>
         </div>
     );

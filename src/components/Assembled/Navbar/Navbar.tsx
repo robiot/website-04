@@ -14,7 +14,7 @@ import { Dropdown } from "./Dropdown";
 const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
     return (
         <Link href={link.to} passHref key={`link:${link.name}`}>
-            <motion.div
+            <motion.a
                 tabIndex={0}
                 variants={popUp}
                 role="button"
@@ -23,7 +23,7 @@ const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
                 <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
                     {link.name}
                 </span>
-            </motion.div>
+            </motion.a>
         </Link>
     );
 };
@@ -53,7 +53,7 @@ export const Navbar = () => {
                 className={cx(
                     "h-16 sticky top-0 left-0 z-50 transition-shadow duration-200 box-content border-b-[1px] border-transparent",
                     (isTop || dropdownActive) &&
-                        "bg-grey2/10 border-b-grey/10 backdrop-blur-2xl"
+                        "bg-grey3/60 border-b-grey/10 backdrop-blur-2xl"
                 )}
             >
                 <Container size="large">

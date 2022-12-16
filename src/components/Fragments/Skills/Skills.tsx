@@ -1,16 +1,23 @@
 import { Container } from "@components/Common/Container/Container";
-import { PrimaryTextCol1, PrimaryTextCol2 } from "@utils/constants";
 import { FC } from "react";
+
+import { SkillsTable } from "./SkillsTable";
 
 export const Skills: FC = () => {
     return (
-        <section id="skills" className="bg-grey2 py-16">
-            <Container>
-                <div className="flex justify-between gap-20 text-base">
-                    <p className="flex-1">{PrimaryTextCol1}</p>
-
-                    <p className="flex-1">{PrimaryTextCol2}</p>
+        <section id="skills" className="-mt-16">
+            <Container size="xlarge">
+                <div className="bg-blue py-10 pb-20 px-10 rounded-3xl">
+                    <Container>
+                        <h3 className="text-center text-5xl font-bold text-grey3">
+                            Skills
+                        </h3>
+                    </Container>
                 </div>
+            </Container>
+
+            <Container>
+                <SkillsTable />
             </Container>
         </section>
     );

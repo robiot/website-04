@@ -12,14 +12,14 @@ const getLinks = (
     links: LinksDataType,
     setDropdownActive: Dispatch<SetStateAction<boolean>>
 ): JSX.Element[] => {
-    return links.map((link, index) => {
+    return links.map((link) => {
         return (
             <Link href={link.to} passHref key={`dropdown_link:${link.name}`}>
                 <motion.button
                     variants={mobileNavItemSideways}
                     className={cx(
-                        "py-4 px-7 text-5xl font-bold text-black hover:text-blue",
-                        index == links.length - 1 && "last"
+                        "py-4 px-7 text-5xl font-bold text-black hover:text-blue"
+                        // index == links.length - 1 && "last"
                     )}
                     onClick={() => {
                         setDropdownActive(false);
