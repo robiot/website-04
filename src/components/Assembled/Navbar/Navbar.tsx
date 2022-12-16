@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 
+import { Dropdown } from "./Dropdown";
+
 const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
     return (
         <Link href={link.to} passHref key={`link:${link.name}`}>
@@ -25,6 +27,9 @@ const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
         </Link>
     );
 };
+
+const dropDownButtonDefaultClass =
+    "origin-[left_center] transition-[transform,top,width,opacity] duration-500 absolute h-[3px] w-full bg-black"; // some weird non tailwind stuff + normal stuff
 
 export const Navbar = () => {
     const [isTop, setIsTop] = useState(false);
@@ -83,8 +88,6 @@ export const Navbar = () => {
                                     );
                                 })}
                             </motion.div>
-
-                            {/* eslint-disable-next-line sonarjs/no-identical-functions */}
                         </div>
 
                         <button
@@ -96,18 +99,36 @@ export const Navbar = () => {
                                 setDropdownActive(!dropdownActive);
                             }}
                         >
-                            <span className="absolute top-0 h-[3px] w-full bg-black" />
-                            <span className="absolute top-1/2 h-[3px] w-full bg-black" />
-                            <span className="absolute top-full h-[3px] w-full bg-black" />
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "rotate-45",
+                                    "top-0"
+                                )}
+                            />
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "opacity-0 w-0",
+                                    "top-1/2"
+                                )}
+                            />
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "top-[90%] -rotate-45",
+                                    "top-full"
+                                )}
+                            />
                         </button>
                     </div>
                 </Container>
             </div>
 
-            {/* <Dropdown
+            <Dropdown
                 dropdownActive={dropdownActive}
                 setDropdownActive={setDropdownActive}
-            /> */}
+            />
         </>
     );
 };
