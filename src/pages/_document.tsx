@@ -2,7 +2,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 
 const MainDocument = () => {
     return (
-        <Html lang="en">
+        <Html lang="en" className="scroll-smooth">
             <Head>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link
@@ -15,7 +15,7 @@ const MainDocument = () => {
                     rel="stylesheet"
                 />
             </Head>
-            <body className="font-body bg-grey3">
+            <body className="font-body bg-grey3 scroll-smooth">
                 <Main />
                 <NextScript />
             </body>

@@ -1,15 +1,16 @@
 import { Layout } from "@components/Assembled/Layout/Layout";
+import { About } from "@components/Fragments/About/About";
 import { Home } from "@components/Fragments/Home/Home";
+import { PrimaryTextCol1 } from "@utils/constants";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import { PrimaryText } from "src/utils/constants";
 
 const IndexPage: NextPage = () => {
     return (
         <Layout>
             <NextSeo
                 title="robiot - Home"
-                description={PrimaryText}
+                description={PrimaryTextCol1}
                 openGraph={{
                     url: "https://robiot.dev",
                     type: "image/png",
@@ -32,8 +33,8 @@ const IndexPage: NextPage = () => {
             />
 
             <Home />
-            {/* <About />
-            <Skills />
+            <About />
+            {/*<Skills />
             <Experience />
             <Projects /> */}
         </Layout>

@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::before,
-*::after {
+:root {
     font-size: 18px;
+}
+
+/* Remove spinner */
+#nprogress .spinner,
+#nprogress .spinner-icon {
+    display: none;
+}
+
+#nprogress .bar {
+    @apply bg-blue;
 }

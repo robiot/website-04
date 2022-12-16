@@ -11,7 +11,7 @@ export const Container: FC<{
         <div
             className={cx(
                 "h-full flex w-full",
-                !properties.noPadding && "px-4"
+                !properties.noPadding && "px-6"
             )}
         >
             <div
