@@ -9,7 +9,7 @@ export const Home: FC = () => {
         <div>
             {/* <HomePolygons /> */}
 
-            <div className="h-[80vh] relative overflow-x-hidden overflow-y-hidden">
+            <div className="h-[89vh] relative overflow-x-hidden overflow-y-hidden">
                 <Container>
                     <div className="h-full flex items-center">
                         <div className="flex flex-col gap-2">

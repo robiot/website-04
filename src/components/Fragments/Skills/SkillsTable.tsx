@@ -19,8 +19,8 @@ const getItems = (itemtype: { name: string; image: string }[]) => {
                         variants={popUp}
                         key={index}
                         className={cx(
-                            "flex items-center gap-4 px-5 py-6 border-b-[1px] border-b-grey",
-                            index == itemtype.length - 1 && "last"
+                            "flex items-center gap-3 px-3 py-4 border-b-[1px]",
+                            index == itemtype.length - 1 ? "border-transparent" : "border-b-grey1"
                         )}
                     >
                         <Image
@@ -46,12 +46,12 @@ const ColumnTitle: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const Separator: FC = () => {
-    return <div className="w-[1px] bg-grey mx-10 " />;
+    return <div className="w-[1px] bg-grey1 mx-4 mb-3" style={{marginTop: "calc(5.5rem)"}} />;
 };
 
 export const SkillsTable: FC = () => {
     return (
-        <div className="flex justify-items-stretch -mt-10">
+        <div className="flex justify-items-stretch -mt-12">
             <Column>
                 <ColumnTitle>Languages</ColumnTitle>
                 {getItems(LanguagesData)}

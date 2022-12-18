@@ -12,6 +12,7 @@ export const Layout: FC<{ children: ReactNode; footerMarginTop?: boolean }> = (
 
             {/* {footerMarginTop && <Margin />} */}
             {/* <Footer /> */}
+            <div className="h-20"></div>
         </>
     );
 };
