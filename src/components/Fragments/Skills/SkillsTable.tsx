@@ -38,20 +38,20 @@ const getItems = (itemtype: { name: string; image: string }[]) => {
 };
 
 const Column: FC<{ children: ReactNode }> = ({ children }) => {
-    return <div className="flex-1">{children}</div>;
+    return <div className="flex-1 mt-10 lg:mt-0">{children}</div>;
 };
 
 const ColumnTitle: FC<{ children: ReactNode }> = ({ children }) => {
-    return <h4 className="text-xl text-center mb-10 text-grey3">{children}</h4>;
+    return <h4 className="text-2xl lg:text-xl text-center mb-2 lg:mb-10  text-black lg:text-grey3">{children}</h4>;
 };
 
 const Separator: FC = () => {
-    return <div className="w-[1px] bg-grey1 mx-4 mb-3" style={{marginTop: "calc(5.5rem)"}} />;
+    return <div className="w-[1px] bg-grey1 mx-4 mb-3 hidden lg:block" style={{marginTop: "calc(5.5rem)"}} />;
 };
 
 export const SkillsTable: FC = () => {
     return (
-        <div className="flex justify-items-stretch -mt-12">
+        <div className="flex flex-col lg:flex-row justify-items-stretch mt-0 lg:-mt-12 z-20 relative">
             <Column>
                 <ColumnTitle>Languages</ColumnTitle>
                 {getItems(LanguagesData)}

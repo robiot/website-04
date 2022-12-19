@@ -4,8 +4,9 @@ import { FC } from "react";
 
 export const About: FC = () => {
     return (
-        <section id="about" className="bg-grey2 py-16 pb-32">
-            <Container>
+        <section id="about" className="relative py-32 pb-40 ">
+            <div className="absolute inset-0 w-full bg-grey2 -skew-y-1"></div>
+            <Container className="relative">
                 <div className="flex justify-between gap-10 md:gap-20 text-base flex-col md:flex-row">
                     <p className="flex-1">{PrimaryTextCol1}</p>
 

@@ -1,5 +1,6 @@
 import { Layout } from "@components/Assembled/Layout/Layout";
 import { About } from "@components/Fragments/About/About";
+import { Experience } from "@components/Fragments/Experience/Experience";
 import { Home } from "@components/Fragments/Home/Home";
 import { Skills } from "@components/Fragments/Skills/Skills";
 import { PrimaryTextCol1 } from "@utils/constants";
@@ -36,6 +37,7 @@ const IndexPage: NextPage = () => {
             <Home />
             <About />
             <Skills />
+            <Experience />
             {/*<Skills />
             <Experience />
             <Projects /> */}
