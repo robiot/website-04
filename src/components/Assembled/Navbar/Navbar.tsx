@@ -1,12 +1,35 @@
+/* eslint-disable sonarjs/no-identical-functions */
 import { Container } from "@components/Common/Container/Container";
-import { NavLinks } from "@components/Common/NavLinks/NavLinks";
+// import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import { LinksData, LinksSection2Data, NavbarHeight } from "@lib/constants";
-import { cx } from "@lib/utils";
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { LinksData, LinksSection2Data } from "@utils/constants";
+import { cx } from "@utils/cx";
+import { FadeContainer, popUp } from "@utils/framerMotionVariants";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { FC, useEffect, useState } from "react";
 
-import { Dropdown } from "./Dropdown/Dropdown";
+import { Dropdown } from "./Dropdown";
+
+const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
+    return (
+        <Link href={link.to} passHref key={`link:${link.name}`}>
+            <motion.a
+                tabIndex={0}
+                variants={popUp}
+                role="button"
+                className="px-3 group"
+            >
+                <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
+                    {link.name}
+                </span>
+            </motion.a>
+        </Link>
+    );
+};
+
+const dropDownButtonDefaultClass =
+    "origin-[left_center] transition-[transform,top,width,opacity] duration-500 absolute h-[3px] w-full bg-black"; // some weird non tailwind stuff + normal stuff
 
 export const Navbar = () => {
     const [isTop, setIsTop] = useState(false);
@@ -26,38 +49,81 @@ export const Navbar = () => {
 
     return (
         <>
-            <Wrapper
+            <div
                 className={cx(
-                    isTop && "scrolled",
-                    dropdownActive && "scrolled"
+                    "h-16 sticky top-0 left-0 z-50 transition-shadow duration-200 box-content border-b-[1px] border-transparent",
+                    (isTop || dropdownActive) &&
+                        "bg-grey3/60 border-b-grey/10 backdrop-blur-2xl"
                 )}
             >
                 <Container size="large">
-                    <SpaceBetween>
+                    <div className="flex justify-between items-center h-full">
                         <SiteBanner />
 
-                        <Items>
-                            <NavLinks links={LinksData} />
+                        <div className="hidden md:flex">
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                variants={FadeContainer}
+                                viewport={{ once: true }}
+                                className="flex"
+                            >
+                                {LinksData.map((link) => {
+                                    return (
+                                        <LinkItem
+                                            link={link}
+                                            key={`link:${link.name}`}
+                                        />
+                                    );
+                                })}
 
-                            <Divider />
+                                <div className="bg-blue my-[0.15rem] flex-1 mx-3 w-[2px]" />
 
-                            <NavLinks links={LinksSection2Data} />
-                        </Items>
+                                {LinksSection2Data.map((link) => {
+                                    return (
+                                        <LinkItem
+                                            link={link}
+                                            key={`link:${link.name}`}
+                                        />
+                                    );
+                                })}
+                            </motion.div>
+                        </div>
 
-                        <ToggleDropdown
+                        <button
                             aria-label="Toggle dropdown"
-                            className={cx(dropdownActive && "open")}
+                            className={
+                                "flex md:hidden cursor-pointer h-5 w-6 relative"
+                            }
                             onClick={() => {
                                 setDropdownActive(!dropdownActive);
                             }}
                         >
-                            <span />
-                            <span />
-                            <span />
-                        </ToggleDropdown>
-                    </SpaceBetween>
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "rotate-45",
+                                    "top-0"
+                                )}
+                            />
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "opacity-0 w-0",
+                                    "top-1/2"
+                                )}
+                            />
+                            <span
+                                className={cx(
+                                    dropDownButtonDefaultClass,
+                                    dropdownActive && "top-[90%] -rotate-45",
+                                    "top-full"
+                                )}
+                            />
+                        </button>
+                    </div>
                 </Container>
-            </Wrapper>
+            </div>
 
             <Dropdown
                 dropdownActive={dropdownActive}
@@ -66,99 +132,3 @@ export const Navbar = () => {
         </>
     );
 };
-
-const Wrapper = styled.nav`
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 500;
-
-    display: flex;
-    width: 100%;
-    height: ${NavbarHeight};
-
-    transition: box-shadow 0.2s;
-    &.scrolled {
-        background-color: ${({ theme }) => theme.palette.primary.bg.from};
-        box-shadow: inset 0 -1px 0 0 ${({ theme }) => theme.palette.divider}44;
-    }
-`;
-
-const SpaceBetween = styled.div`
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-`;
-
-const Items = styled.div`
-    display: flex;
-    height: 100%;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-        display: none;
-    }
-`;
-
-const Divider = styled.div`
-    height: 20px;
-    width: 2px;
-    margin: 0 20px;
-    align-self: center;
-
-    background-color: ${({ theme }) => theme.palette.divider};
-`;
-
-const ToggleDropdown = styled.button`
-    cursor: pointer;
-    width: 25px;
-    height: 20px;
-
-    display: flex;
-    align-self: center;
-
-    background-color: transparent;
-
-    border: 0;
-
-    transform: rotate(0deg);
-
-    position: relative;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-        display: none;
-    }
-
-    & span {
-        transition-property: transform, top, width, opacity;
-        transition-duration: 0.2s;
-        transition-timing-function: ease-in-out;
-        display: block;
-        position: absolute;
-        border-radius: 9px;
-        left: 0;
-        height: 3px;
-        width: 100%;
-        background-color: ${({ theme }) => theme.palette.primary.fg};
-        transform-origin: left center; // ?
-    }
-    & span:nth-child(1) {
-        top: 0;
-    }
-    & span:nth-child(2) {
-        top: 50%;
-    }
-    & span:nth-child(3) {
-        top: 100%;
-    }
-    &.open span:nth-child(1) {
-        transform: rotate(45deg);
-    }
-    &.open span:nth-child(2) {
-        width: 0%;
-        opacity: 0;
-    }
-    &.open span:nth-child(3) {
-        transform: rotate(-45deg);
-        top: 90%;
-    }
-`;

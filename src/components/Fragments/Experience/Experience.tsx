@@ -1,73 +1,58 @@
 import { Container } from "@components/Common/Container/Container";
-import { ExperiencesData } from "@lib/constants";
-import { FadeContainer } from "@lib/framerMotionVariants";
+import { ExperiencesData } from "@utils/constants";
+import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FC } from "react";
-import styled from "styled-components";
-
-import { ExperienceItem } from "./ExperienceItem/ExperienceItem";
 
 export const Experience: FC = () => {
     return (
-        <Wrapper id="experience">
-            <Container size="medium">
-                <ContentWrapper>
-                    <Title>Experience</Title>
+        <section
+            id="experience"
+            className="relative mt-16 py-16 pb-64 scroll-m-10"
+        >
+            <div className="absolute inset-0 w-full bg-grey2 -skew-y-1"></div>
+            <Container className="relative flex flex-col gap-10 items-center justify-center">
+                <h3 className="text-center text-5xl font-bold text-black">
+                    Experience
+                </h3>
 
-                    <ExperiencesWrapper
-                        initial="hidden"
-                        whileInView="visible"
-                        variants={FadeContainer}
-                        viewport={{ once: true }}
-                    >
-                        {ExperiencesData.map((item, index) => {
-                            return (
-                                <ExperienceItem
-                                    item={item}
-                                    key={`experience_item_${index}`}
-                                />
-                            );
-                        })}
-                    </ExperiencesWrapper>
-                </ContentWrapper>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={FadeContainer}
+                    viewport={{ once: true }}
+                    className="flex flex-col gap-5"
+                >
+                    {ExperiencesData.map((item, index) => {
+                        return (
+                            <motion.div
+                                variants={popUp}
+                                className="duration-500 flex items-center gap-7"
+                                key={`experience_item_${index}`}
+                            >
+                                <div className="h-[60px] w-[60px] flex rounded-sm pointer-events-none">
+                                    <Image
+                                        height={60}
+                                        width={60}
+                                        style={{ borderRadius: "11px" }}
+                                        alt={item.company}
+                                        src={`/img/experience/${item.image}`}
+                                    />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl">{item.title}</h3>
+                                    <span>
+                                        {item.date}
+                                        {item.company != "" ? " · " : ""}
+                                        {item.company}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
-
-const Wrapper = styled.section`
-    background-color: ${({ theme }) => theme.palette.section[1].bg};
-    scroll-margin-top: 20px;
-`;
-
-const ContentWrapper = styled.div`
-    z-index: 100;
-    position: relative;
-
-    padding: 70px 0 250px 0;
-    height: 100%;
-    /* 
-    max-width: 100px;
-    margin: 0 auto; */
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 50px;
-`;
-
-const Title = styled.h2`
-    color: ${({ theme }) => theme.palette.section[1].fg};
-    font-size: ${({ theme }) => theme.font.size.xlarge};
-    word-break: break-all;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        font-size: calc(${({ theme }) => theme.font.size.xlarge} - 20px);
-    }
-`;
-
-const ExperiencesWrapper = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-`;

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-size: 18px;
+}
+
+/* Remove spinner */
+#nprogress .spinner,
+#nprogress .spinner-icon {
+    display: none;
+}
+
+#nprogress .bar {
+    @apply bg-blue;
+}

@@ -1,101 +1,68 @@
 import { Container } from "@components/Common/Container/Container";
-import { Hyperlink } from "@components/Common/Hyperlink/Hyperlink";
-import { ProjectsData } from "@lib/constants";
-import { popUp } from "@lib/framerMotionVariants";
+import { ProjectsData } from "@utils/constants";
+import { cx } from "@utils/cx";
+import { popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FC } from "react";
-import styled from "styled-components";
-
-import { ProjectCard } from "./ProjectCard/ProjectCard";
 
 export const Projects: FC = () => {
     return (
-        <Wrapper id="projects">
-            <Container size="large">
-                <Content>
-                    <Title>Projects</Title>
-                    <CardsWrapper>
+        <section id="projects" className="-mt-40 scroll-m-20">
+            <Container className="z-20">
+                <div className="flex flex-col items-center">
+                    <h3 className="text-center text-5xl font-bold text-black">
+                        Projects
+                    </h3>
+                    <div className="flex flex-col lg:flex-row w-full gap-10 justify-between mt-10 lg:mt-5">
                         {ProjectsData.map((project, index) => {
                             return (
-                                <CardWrapper
+                                <motion.div
                                     initial="hidden"
                                     whileInView="visible"
                                     variants={popUp}
                                     viewport={{ once: true }}
-                                    style={{
-                                        marginTop: index == 1 ? "30px" : "",
-                                    }}
+                                    className={cx(
+                                        "flex flex-1",
+                                        index == 1 ? "lg:mt-6" : ""
+                                    )}
                                     key={`project_${index}`}
                                 >
-                                    <ProjectCard card={project} />
-                                </CardWrapper>
+                                    {/* <ProjectCard card={project} /> */}
+                                    <div className="flex justify-between flex-col h-72 flex-1 p-9 bg-grey3 rounded-3xl shadow-lg border-2 border-grey2 lg:border-transparent">
+                                        <div className="flex flex-col gap-3">
+                                            <h4 className="text-2xl font-semibold">
+                                                {project.title}
+                                            </h4>
+                                            <p>{project.description}</p>
+                                        </div>
+                                        <a
+                                            className="flex justify-center items-center w-full h-12 text-white bg-blue rounded-lg"
+                                            href={project.source}
+                                            target="_blank"
+                                        >
+                                            Source Code
+                                        </a>
+                                    </div>
+                                </motion.div>
                             );
                         })}
-                    </CardsWrapper>
-                    <UnderText>
+                    </div>
+                    <div className="mt-10 text-lg">
                         Much more can be found on my{" "}
-                        <LinkWrapper>
-                            <Hyperlink
+                        <span>
+                            <Link
                                 href="https://github.com/robiot"
                                 target="_blank"
+                                passHref
                             >
-                                Github
-                            </Hyperlink>
-                        </LinkWrapper>
-                    </UnderText>
-                </Content>
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <a className="text-blue1">Github</a>
+                            </Link>
+                        </span>
+                    </div>
+                </div>
             </Container>
-        </Wrapper>
+        </section>
     );
 };
-
-const Wrapper = styled.section`
-    margin-top: -150px;
-    scroll-margin-top: 100px;
-`;
-
-const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-
-const CardsWrapper = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 50px;
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-        align-items: center;
-        flex-direction: column;
-        margin-top: 30px;
-    }
-`;
-
-const CardWrapper = styled(motion.div)`
-    width: 100%;
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-        margin: 0 !important;
-    }
-`;
-
-const Title = styled.h2`
-    color: ${({ theme }) => theme.palette.section[1].fg};
-    font-size: ${({ theme }) => theme.font.size.xlarge};
-    word-break: break-all;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        font-size: calc(${({ theme }) => theme.font.size.xlarge} - 20px);
-    }
-`;
-
-const UnderText = styled.span`
-    margin-top: 50px;
-    color: ${({ theme }) => theme.palette.primary.fg};
-    font-size: ${({ theme }) => theme.font.size.normal};
-    text-align: center;
-`;
-
-const LinkWrapper = styled.span`
-    color: ${({ theme }) => theme.palette.link};
-`;

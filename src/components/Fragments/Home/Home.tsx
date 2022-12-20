@@ -1,91 +1,37 @@
 import { Container } from "@components/Common/Container/Container";
-import { NavbarHeight } from "@lib/constants";
-import { popUpFromBottomForText } from "@lib/framerMotionVariants";
+import { popUpFromBottomForText } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FC } from "react";
-import { FaAngleDown } from "react-icons/fa";
-import styled from "styled-components";
 
-import { ContactIcons } from "./ContactIcons/ContactIcons";
-import { HomePolygons } from "./HomePolygons/HomePolygons";
+import { ContactIcons } from "./ContactIcons";
 
 // The top of the home page / landing
 export const Home: FC = () => {
     return (
-        <Wrapper>
-            <HomePolygons />
+        <div>
+            <div className="h-[80vh] relative overflow-x-hidden overflow-y-hidden">
+                <Container>
+                    <motion.div
+                        className="h-full flex items-center"
+                        initial="hidden"
+                        animate="visible"
+                        variants={popUpFromBottomForText}
+                    >
+                        <div className="flex flex-col gap-2">
+                            <h1 className="text-6xl font-extrabold">
+                                Hello, I'm Elliot.
+                            </h1>
 
-            <Container size="medium">
-                <ContentWrapper
-                    initial="hidden"
-                    animate="visible"
-                    variants={popUpFromBottomForText}
-                >
-                    <Title>Hello, I'm Elliot.</Title>
+                            <h3 className="text-lg">
+                                A 15 year old Web and Software developer.
+                            </h3>
 
-                    <SubTitle>
-                        A 15 year old Web and Software developer.
-                    </SubTitle>
-                    <ContactIcons />
-                </ContentWrapper>
-            </Container>
-
-            <Link href="/#about" passHref>
-                {/*eslint-disable-next-line styled-components-a11y/anchor-is-valid*/}
-                <DownIcon aria-label="Arrow down">
-                    <FaAngleDown />
-                </DownIcon>
-            </Link>
-        </Wrapper>
+                            <ContactIcons />
+                        </div>
+                    </motion.div>
+                </Container>
+                <div className="bg-blue top-28 right-[-20%] absolute -z-10 h-[100%] w-[50vw] rounded-[6rem] -rotate-[25deg] hidden lg:block" />
+            </div>
+        </div>
     );
 };
-
-const DownIcon = styled.a`
-    position: absolute;
-    left: 50%;
-    bottom: 20px;
-    z-index: 100;
-    transform: translateX(-50%);
-
-    cursor: pointer;
-
-    display: flex;
-    font-size: ${({ theme }) => theme.icon.size.large};
-    color: ${({ theme }) => theme.palette.primary.fg};
-`;
-
-const Wrapper = styled.div`
-    height: calc(100vh - ${NavbarHeight});
-    position: relative;
-    overflow-x: clip;
-`;
-
-const ContentWrapper = styled(motion.div)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 100;
-    position: relative;
-
-    padding-bottom: ${NavbarHeight};
-    height: 100%;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        align-items: flex-start;
-    }
-`;
-
-const Title = styled.h1`
-    font-size: ${({ theme }) => theme.font.size.xlarge};
-    font-weight: bold;
-    color: ${({ theme }) => theme.palette.primary.fg};
-`;
-
-const SubTitle = styled.h2`
-    font-weight: 500;
-    font-size: ${({ theme }) => theme.font.size.medium};
-    color: ${({ theme }) => theme.palette.primary.fg};
-`;

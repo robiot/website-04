@@ -1,7 +1,10 @@
 export const NavbarHeight = "70px";
 
-export const PrimaryText =
-    "Hello, I'm Elliot (also called Robiot online), a self-taught passionate developer with lots of experience in both web- and software development. I've been building stuff since early 2021. Many of my projects are uploaded to Github, where some have gained lots of attention. Thanks!";
+export const PrimaryTextCol1 =
+    "I'm Elliot, also called Robiot online, a passionate software and web developer. I code as a hobby and I enjoy it a lot. I've been coding seriously since early 2021, but I've made some small projects before.";
+
+export const PrimaryTextCol2 =
+    "I often share my projects on GitHub, where some of them have gained popularity. I'm grateful for the positive feedback and support I've received. If you're interested in checking out my work, feel free to visit my GitHub profile and take a look around.";
 
 export type LinksDataType = {
     name: string;
@@ -172,7 +175,7 @@ export const ExperiencesData: ExperiencesDataType = [
     },
     {
         title: "Software Engineer",
-        company: "V3x",
+        company: "V3X",
         date: "Since Nov 2021",
         image: "v3x.jpeg",
     },
