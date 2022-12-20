@@ -35,7 +35,7 @@ export const SiteBanner = () => {
                         style={{ borderRadius: "9999px" }}
                     />
                 </motion.div>
-                <span>robiot</span>
+                <span className="text-lg">robiot</span>
             </button>
         </Link>
     );

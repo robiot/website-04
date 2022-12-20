@@ -175,7 +175,7 @@ export const ExperiencesData: ExperiencesDataType = [
     },
     {
         title: "Software Engineer",
-        company: "V3x",
+        company: "V3X",
         date: "Since Nov 2021",
         image: "v3x.jpeg",
     },

@@ -20,7 +20,9 @@ const getItems = (itemtype: { name: string; image: string }[]) => {
                         key={index}
                         className={cx(
                             "flex items-center gap-3 px-3 py-4 border-b-[1px]",
-                            index == itemtype.length - 1 ? "border-transparent" : "border-b-grey1"
+                            index == itemtype.length - 1
+                                ? "border-transparent"
+                                : "border-b-grey1"
                         )}
                     >
                         <Image
@@ -42,11 +44,20 @@ const Column: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const ColumnTitle: FC<{ children: ReactNode }> = ({ children }) => {
-    return <h4 className="text-2xl lg:text-xl text-center mb-2 lg:mb-10  text-black lg:text-grey3">{children}</h4>;
+    return (
+        <h4 className="text-2xl lg:text-xl text-center mb-2 lg:mb-10  text-black lg:text-grey3">
+            {children}
+        </h4>
+    );
 };
 
 const Separator: FC = () => {
-    return <div className="w-[1px] bg-grey1 mx-4 mb-3 hidden lg:block" style={{marginTop: "calc(5.5rem)"}} />;
+    return (
+        <div
+            className="w-[1px] bg-grey1 mx-4 mb-3 hidden lg:block"
+            style={{ marginTop: "calc(5.5rem)" }}
+        />
+    );
 };
 
 export const SkillsTable: FC = () => {

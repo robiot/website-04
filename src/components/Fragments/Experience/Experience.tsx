@@ -1,21 +1,21 @@
 import { Container } from "@components/Common/Container/Container";
-import { ExperiencesDataType, ExperiencesData } from "@utils/constants";
+import { ExperiencesData } from "@utils/constants";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
-import { FC } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-
+import { FC } from "react";
 
 export const Experience: FC = () => {
     return (
-        <section id="experience" className="relative mt-16 py-16">
+        <section
+            id="experience"
+            className="relative mt-16 py-16 pb-64 scroll-m-10"
+        >
             <div className="absolute inset-0 w-full bg-grey2 -skew-y-1"></div>
             <Container className="relative flex flex-col gap-10 items-center justify-center">
                 <h3 className="text-center text-5xl font-bold text-black">
-                    Skills
+                    Experience
                 </h3>
-
 
                 <motion.div
                     initial="hidden"
@@ -26,7 +26,11 @@ export const Experience: FC = () => {
                 >
                     {ExperiencesData.map((item, index) => {
                         return (
-                            <motion.div variants={popUp} className="duration-500 flex items-center">
+                            <motion.div
+                                variants={popUp}
+                                className="duration-500 flex items-center gap-7"
+                                key={`experience_item_${index}`}
+                            >
                                 <div className="h-[60px] w-[60px] flex rounded-sm pointer-events-none">
                                     <Image
                                         height={60}
@@ -37,7 +41,7 @@ export const Experience: FC = () => {
                                     />
                                 </div>
                                 <div>
-                                    <h3>{item.title}</h3>
+                                    <h3 className="text-xl">{item.title}</h3>
                                     <span>
                                         {item.date}
                                         {item.company != "" ? " · " : ""}
@@ -46,7 +50,6 @@ export const Experience: FC = () => {
                                 </div>
                             </motion.div>
                         );
-
                     })}
                 </motion.div>
             </Container>
