@@ -37,7 +37,7 @@ export const Projects: FC = () => {
                                             <p>{project.description}</p>
                                         </div>
                                         <a
-                                            className="flex justify-center items-center w-full h-12 text-white bg-blue rounded-lg"
+                                            className="flex justify-center items-center w-full h-12 text-white bg-blue rounded-lg hover:bg-blue/95"
                                             href={project.source}
                                             target="_blank"
                                         >
