@@ -61,7 +61,7 @@ export const Footer = () => {
                     </div>
                     <div className="flex justify-between text-center md:text-left flex-col md:flex-row gap-y-8">
                         <span className="text-grey text-sm md:text-base">
-                            Copyright © 2022 Robiot. All rights reserved.
+                            Copyright © 2023 Robiot. All rights reserved.
                         </span>
 
                         <span className="text-grey text-sm md:text-base">

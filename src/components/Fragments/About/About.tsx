@@ -4,7 +4,7 @@ import { FC } from "react";
 
 export const About: FC = () => {
     return (
-        <section id="about" className="relative pt-[calc(20vh-75px)] pb-40 ">
+        <section id="about" className="relative pt-[calc(20vh-75px)] pb-40">
             <div className="absolute inset-0 w-full bg-grey2 -skew-y-1" />
             <Container className="relative">
                 <div className="flex justify-between gap-10 md:gap-20 text-base flex-col md:flex-row">
