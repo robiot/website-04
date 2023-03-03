@@ -22,9 +22,9 @@ export const Home: FC = () => {
                                 Hello, I'm Elliot.
                             </h1>
 
-                            <h3 className="text-lg">
+                            <h2 className="text-lg">
                                 A 15 year old Web and Software developer.
-                            </h3>
+                            </h2>
 
                             <ContactIcons />
                         </div>
