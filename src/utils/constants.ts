@@ -34,13 +34,6 @@ export const LinksData: LinksDataType = [
     },
 ];
 
-export const LinksSection2Data: LinksDataType = [
-    {
-        name: "Blog",
-        to: "https://blog.robiot.dev",
-    },
-];
-
 export const ContactData: LinksDataType = [
     {
         name: "Github",
