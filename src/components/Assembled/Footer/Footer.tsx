@@ -4,7 +4,6 @@ import {
     ContactData,
     LinksData,
     LinksDataType,
-    LinksSection2Data,
 } from "@utils/constants";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
@@ -53,7 +52,7 @@ export const Footer = () => {
                         {/* <FooterLinks /> */}
                         <div className="flex-col md:flex-row text-center md:text-left flex gap-x-20 gap-y-10">
                             <Column
-                                links={[...LinksData, ...LinksSection2Data]}
+                                links={LinksData}
                                 title="Go to"
                             />
                             <Column links={ContactData} title="Contact" />
