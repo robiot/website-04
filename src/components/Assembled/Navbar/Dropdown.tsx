@@ -1,4 +1,4 @@
-import { LinksData, LinksDataType, LinksSection2Data } from "@utils/constants";
+import { LinksData, LinksDataType } from "@utils/constants";
 import { cx } from "@utils/cx";
 import {
     FadeContainer,
@@ -55,9 +55,6 @@ export const Dropdown: FC<{
                     className="pt-10 h-full flex flex-col items-start"
                 >
                     {getLinks(LinksData, properties.setDropdownActive)}
-
-                    {/* <Divider /> */}
-                    {getLinks(LinksSection2Data, properties.setDropdownActive)}
                 </motion.div>
             )}
         </div>
