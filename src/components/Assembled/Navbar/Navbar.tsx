@@ -2,7 +2,7 @@
 import { Container } from "@components/Common/Container/Container";
 // import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import { LinksData, LinksSection2Data } from "@utils/constants";
+import { LinksData } from "@utils/constants";
 import { cx } from "@utils/cx";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
@@ -69,17 +69,6 @@ export const Navbar = () => {
                                 className="flex"
                             >
                                 {LinksData.map((link) => {
-                                    return (
-                                        <LinkItem
-                                            link={link}
-                                            key={`link:${link.name}`}
-                                        />
-                                    );
-                                })}
-
-                                <div className="bg-blue my-[0.15rem] flex-1 mx-3 w-[2px]" />
-
-                                {LinksSection2Data.map((link) => {
                                     return (
                                         <LinkItem
                                             link={link}

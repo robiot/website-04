@@ -1,11 +1,6 @@
 import { Container } from "@components/Common/Container/Container";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import {
-    ContactData,
-    LinksData,
-    LinksDataType,
-    LinksSection2Data,
-} from "@utils/constants";
+import { ContactData, LinksData, LinksDataType } from "@utils/constants";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -52,10 +47,7 @@ export const Footer = () => {
                         <SiteBanner />
                         {/* <FooterLinks /> */}
                         <div className="flex-col md:flex-row text-center md:text-left flex gap-x-20 gap-y-10">
-                            <Column
-                                links={[...LinksData, ...LinksSection2Data]}
-                                title="Go to"
-                            />
+                            <Column links={LinksData} title="Go to" />
                             <Column links={ContactData} title="Contact" />
                         </div>
                     </div>
