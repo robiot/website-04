@@ -51,10 +51,7 @@ export const Footer = () => {
                         <SiteBanner />
                         {/* <FooterLinks /> */}
                         <div className="flex-col md:flex-row text-center md:text-left flex gap-x-20 gap-y-10">
-                            <Column
-                                links={LinksData}
-                                title="Go to"
-                            />
+                            <Column links={LinksData} title="Go to" />
                             <Column links={ContactData} title="Contact" />
                         </div>
                     </div>
