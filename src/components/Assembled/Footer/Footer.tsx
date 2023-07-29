@@ -1,10 +1,6 @@
 import { Container } from "@components/Common/Container/Container";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
-import {
-    ContactData,
-    LinksData,
-    LinksDataType,
-} from "@utils/constants";
+import { ContactData, LinksData, LinksDataType } from "@utils/constants";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
 import Link from "next/link";
