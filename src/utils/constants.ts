@@ -45,7 +45,7 @@ export const ContactData: LinksDataType = [
     },
     {
         name: "Twitter",
-        to: "https://twitter.com/notrobiot",
+        to: "https://x.com/robiot103",
     },
     {
         name: "Youtube",
