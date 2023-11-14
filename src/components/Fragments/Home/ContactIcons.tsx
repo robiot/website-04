@@ -1,16 +1,18 @@
 import { ContactData } from "@utils/constants";
 import { copyMToClipboard } from "@utils/mail";
 import { FC } from "react";
-import { FaEnvelope, FaGithub, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import {
+    FaEnvelope,
+    FaGithub,
+    FaLinkedin,
+    FaXTwitter,
+    FaYoutube,
+} from "react-icons/fa6";
 
 export const ContactIcons: FC = () => {
     return (
         <div className="flex gap-6 mt-2">
             {ContactData.map((item) => {
-                if (item.name == "LinkedIn") {
-                    return;
-                }
-
                 return (
                     <a
                         key={`contact_icon_${item.name}`}
@@ -22,6 +24,7 @@ export const ContactIcons: FC = () => {
                         {item.name == "Github" && <FaGithub size={28} />}
                         {item.name == "Youtube" && <FaYoutube size={28} />}
                         {item.name == "Twitter" && <FaXTwitter size={28} />}
+                        {item.name == "LinkedIn" && <FaLinkedin size={28} />}
                     </a>
                 );
             })}

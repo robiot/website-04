@@ -47,10 +47,6 @@ export const ContactData: LinksDataType = [
         name: "Twitter",
         to: "https://x.com/robiot103",
     },
-    {
-        name: "Youtube",
-        to: "https://youtube.com/c/robiot",
-    },
 ];
 
 export type SkillsDataType = {
