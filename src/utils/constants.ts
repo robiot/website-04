@@ -167,9 +167,15 @@ export const ExperiencesData: ExperiencesDataType = [
         image: "github.png",
     },
     {
+        title: "Web Developer",
+        company: "ENS",
+        date: "Jan 2023 - Oct 2023",
+        image: "ens.jpg",
+    },
+    {
         title: "Software Engineer",
         company: "V3X",
-        date: "Since Nov 2021",
+        date: "Nov 2021 - Oct 2023",
         image: "v3x.jpeg",
     },
     {
