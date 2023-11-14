@@ -13,9 +13,6 @@ module.exports = {
             grey3: "#F7F8FF", // used for bg
             transparent: "transparent", // used for bg
         },
-        fontFamily: {
-            body: ["Outfit", "sans-serif"],
-        },
     },
     plugins: [],
 };

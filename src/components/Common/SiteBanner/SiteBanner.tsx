@@ -6,7 +6,6 @@ import Link from "next/link";
 export const SiteBanner = () => {
     return (
         <Link href="/" passHref>
-            {/* eslint-disable-next-line styled-components-a11y/anchor-is-valid, styled-components-a11y/click-events-have-key-events */}
             <button
                 tabIndex={0}
                 className="flex h-fit items-center gap-4"
@@ -29,10 +28,10 @@ export const SiteBanner = () => {
                 >
                     <Image
                         src={robot}
-                        height="50px"
-                        width="50px"
+                        height={50}
+                        width={50}
                         alt="Site image"
-                        style={{ borderRadius: "9999px" }}
+                        className="rounded-full"
                     />
                 </motion.div>
                 <span className="text-lg">robiot</span>

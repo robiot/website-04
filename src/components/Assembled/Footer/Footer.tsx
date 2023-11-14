@@ -1,9 +1,11 @@
+"use client";
+
 import { Container } from "@components/Common/Container/Container";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
+import { MotionLink } from "@components/Common/UI/MotionLink";
 import { ContactData, LinksData, LinksDataType } from "@utils/constants";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FC } from "react";
 
 const Column: FC<{ links: LinksDataType; title: string }> = ({
@@ -22,15 +24,14 @@ const Column: FC<{ links: LinksDataType; title: string }> = ({
             >
                 {links.map((link) => {
                     return (
-                        <Link href={link.to} key={`link:${link.name}`} passHref>
-                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <motion.a
-                                variants={popUp}
-                                className="text-lg text-grey hover:text-black transition-colors duration-150"
-                            >
-                                {link.name}
-                            </motion.a>
-                        </Link>
+                        <MotionLink
+                            href={link.to}
+                            key={`link:${link.name}`}
+                            variants={popUp}
+                            className="text-lg text-grey hover:text-black transition-colors duration-150"
+                        >
+                            {link.name}
+                        </MotionLink>
                     );
                 })}
             </motion.div>
@@ -45,7 +46,7 @@ export const Footer = () => {
                 <div className="flex flex-col gap-20">
                     <div className="flex-col md:flex-row flex items-center md:items-start justify-between gap-y-9">
                         <SiteBanner />
-                        {/* <FooterLinks /> */}
+
                         <div className="flex-col md:flex-row text-center md:text-left flex gap-x-20 gap-y-10">
                             <Column links={LinksData} title="Go to" />
                             <Column links={ContactData} title="Contact" />

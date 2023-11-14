@@ -3,38 +3,19 @@
     "parserOptions": {
         "ecmaVersion": 2022
     },
-    "extends": [
-        "plugin:@next/next/recommended",
-        "plugin:lvksh/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:styled-components-a11y/recommended"
-    ],
+    "extends": ["plugin:robiot/recommended", "plugin:@next/next/recommended"],
     "ignorePatterns": ["!**/*", "*.cjs"],
-    "plugins": ["lvksh", "react", "react-hooks", "styled-components-a11y"],
+    "plugins": ["robiot", "@next/next"],
     "env": {
-        "browser": true,
         "node": true,
-        "jasmine": true,
-        "es2022": true
+        "browser": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     },
     "globals": {
-        "React": true,
-        "google": true,
-        "mount": true,
-        "mountWithRouter": true,
-        "shallow": true,
-        "shallowWithRouter": true,
-        "context": true,
-        "expect": true,
-        "jsdom": true,
-        "JSX": true
-    },
-    "rules": {
-        "quotes": ["error", "double"],
-        "unicorn/prefer-module": "off",
-        "unicorn/prevent-abbreviations": "off",
-        "unicorn/prefer-at": "off",
-        "unicorn/prefer-node-protocol": "off"
+        "JSX": "readonly"
     }
 }

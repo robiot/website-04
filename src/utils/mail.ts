@@ -1,6 +1,7 @@
 import classNames from "classnames";
 
-export const cx = (...args: classNames.ArgumentArray) => classNames(...args);
+export const cx = (..._arguments: classNames.ArgumentArray) =>
+    classNames(..._arguments);
 
 export const copyMToClipboard = async () => {
     const m = decodeURIComponent(window.atob("ZWxsaW90QHJvYm" + "lvdC5kZXY="));

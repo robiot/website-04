@@ -28,7 +28,6 @@ export const Projects: FC = () => {
                                     )}
                                     key={`project_${index}`}
                                 >
-                                    {/* <ProjectCard card={project} /> */}
                                     <div className="flex justify-between flex-col h-72 flex-1 p-9 bg-grey3 rounded-3xl shadow-lg border-2 border-grey2 lg:border-transparent">
                                         <div className="flex flex-col gap-3">
                                             <h4 className="text-2xl font-semibold">
@@ -54,10 +53,9 @@ export const Projects: FC = () => {
                             <Link
                                 href="https://github.com/robiot"
                                 target="_blank"
-                                passHref
+                                className="text-blue1"
                             >
-                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                <a className="text-blue1">Github</a>
+                                Github
                             </Link>
                         </span>
                     </div>

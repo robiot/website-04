@@ -1,30 +1,30 @@
-/* eslint-disable sonarjs/no-identical-functions */
+"use client";
+
 import { Container } from "@components/Common/Container/Container";
-// import { NavLinks } from "@components/Common/NavLinks/NavLinks";
 import { SiteBanner } from "@components/Common/SiteBanner/SiteBanner";
+import { MotionLink } from "@components/Common/UI/MotionLink";
 import { LinksData } from "@utils/constants";
 import { cx } from "@utils/cx";
 import { FadeContainer, popUp } from "@utils/framerMotionVariants";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 
 import { Dropdown } from "./Dropdown";
 
 const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
     return (
-        <Link href={link.to} passHref key={`link:${link.name}`}>
-            <motion.a
-                tabIndex={0}
-                variants={popUp}
-                role="button"
-                className="px-3 group"
-            >
-                <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
-                    {link.name}
-                </span>
-            </motion.a>
-        </Link>
+        <MotionLink
+            href={link.to}
+            key={`link:${link.name}`}
+            tabIndex={0}
+            variants={popUp}
+            role="button"
+            className="px-3 group"
+        >
+            <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
+                {link.name}
+            </span>
+        </MotionLink>
     );
 };
 
@@ -105,7 +105,7 @@ export const Navbar = () => {
                             <span
                                 className={cx(
                                     dropDownButtonDefaultClass,
-                                    dropdownActive && "top-[90%] -rotate-45",
+                                    dropdownActive && "top-[85%] -rotate-45",
                                     "top-full"
                                 )}
                             />

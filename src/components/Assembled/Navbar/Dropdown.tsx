@@ -19,7 +19,6 @@ const getLinks = (
                     variants={mobileNavItemSideways}
                     className={cx(
                         "py-4 px-7 text-3xl font-bold text-black hover:text-blue"
-                        // index == links.length - 1 && "last"
                     )}
                     onClick={() => {
                         setDropdownActive(false);
