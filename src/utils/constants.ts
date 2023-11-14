@@ -1,7 +1,7 @@
 export const NavbarHeight = "70px";
 
 export const PrimaryTextCol1 =
-    "I'm Elliot, also called Robiot online, a passionate software and web developer. I code as a hobby and I enjoy it a lot. I've been coding seriously since early 2021, but I've made some small projects before.";
+    "I'm Elliot, also called Robiot online, a dedicated and enthusiastic Web and Software Developer. My journey in the programming world began as a hobby, which has since evolved into something I work with.";
 
 export const PrimaryTextCol2 =
     "I often share my projects on GitHub, where some of them have gained popularity. I'm grateful for the positive feedback and support I've received. If you're interested in checking out my work, feel free to visit my GitHub profile and take a look around.";
