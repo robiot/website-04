@@ -18,15 +18,6 @@ export const metadata = {
     metadataBase: new URL("https://robiot.dev"),
     url: "https://robiot.dev",
     type: "image/png",
-    images: [
-        {
-            url: "/img/og/ogimage.png",
-            width: 1406,
-            height: 803,
-            alt: "Image",
-            type: "image/png",
-        },
-    ],
     site_name: "Robiot",
     twitter: {
         handle: "@handle",
@@ -38,7 +29,7 @@ export const metadata = {
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={cx("bg-grey3", prompt.className)}>
+            <body className={cx("scroll-smooth bg-grey3", prompt.className)}>
                 <Navbar />
 
                 {children}

@@ -18,7 +18,6 @@ const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
             key={`link:${link.name}`}
             tabIndex={0}
             variants={popUp}
-            // role="button"
             className="px-3 group"
         >
             <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
