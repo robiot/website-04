@@ -6,23 +6,33 @@ import { PrimaryTextCol1 } from "@utils/constants";
 import { cx } from "@utils/cx";
 import { Outfit } from "next/font/google";
 import { FC, ReactNode } from "react";
+import { Metadata } from "next";
 
 const prompt = Outfit({
     subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
+    weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "robiot - Home",
     description: PrimaryTextCol1,
     metadataBase: new URL("https://robiot.dev"),
-    url: "https://robiot.dev",
-    type: "image/png",
-    site_name: "Robiot",
+    openGraph: {
+        url: "https://robiot.dev",
+        images: [
+            {
+                url: "/img/og/opengraph-image.png",
+                width: 1406,
+                height: 803,
+                alt: "Robiot",
+                type: "image/png",
+            },
+        ],
+        siteName: "Robiot",
+    },
     twitter: {
-        handle: "@handle",
         site: "@site",
-        cardType: "summary_large_image",
+        card: "summary_large_image",
     },
 };
 
