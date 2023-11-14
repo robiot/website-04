@@ -18,7 +18,7 @@ const LinkItem: FC<{ link: typeof LinksData[any] }> = ({ link }) => {
             key={`link:${link.name}`}
             tabIndex={0}
             variants={popUp}
-            role="button"
+            // role="button"
             className="px-3 group"
         >
             <span className="text-base text-black group-hover:border-b-blue group-hover:border-b-2">
@@ -105,8 +105,9 @@ export const Navbar = () => {
                             <span
                                 className={cx(
                                     dropDownButtonDefaultClass,
-                                    dropdownActive && "top-[85%] -rotate-45",
-                                    "top-full"
+                                    dropdownActive
+                                        ? "top-[85%] -rotate-45"
+                                        : "top-full"
                                 )}
                             />
                         </button>
