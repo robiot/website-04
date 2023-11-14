@@ -8,9 +8,9 @@ export const About: FC = () => {
             <div className="absolute inset-0 w-full bg-grey2 -skew-y-1" />
             <Container className="relative">
                 <div className="flex justify-between gap-10 md:gap-20 text-base flex-col md:flex-row">
-                    <p className="flex-1">{PrimaryTextCol1}</p>
+                    <p className="flex-1 leading-7">{PrimaryTextCol1}</p>
 
-                    <p className="flex-1">{PrimaryTextCol2}</p>
+                    <p className="flex-1 leading-7">{PrimaryTextCol2}</p>
                 </div>
             </Container>
         </section>
