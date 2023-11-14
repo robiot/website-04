@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={cx("scroll-smooth bg-grey3", prompt.className)}>
+            <body className={cx("scroll-smooth bg-white", prompt.className)}>
                 <Navbar />
 
                 {children}

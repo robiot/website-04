@@ -45,7 +45,7 @@ const Column: FC<{ children: ReactNode }> = ({ children }) => {
 
 const ColumnTitle: FC<{ children: ReactNode }> = ({ children }) => {
     return (
-        <h4 className="text-2xl lg:text-xl text-center mb-2 lg:mb-10  text-black lg:text-grey3">
+        <h4 className="text-2xl lg:text-xl text-center mb-2 lg:mb-10  text-black lg:text-white">
             {children}
         </h4>
     );

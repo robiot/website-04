@@ -28,7 +28,7 @@ export const Projects: FC = () => {
                                     )}
                                     key={`project_${index}`}
                                 >
-                                    <div className="flex justify-between flex-col h-72 flex-1 p-9 bg-grey3 rounded-3xl shadow-lg border-2 border-grey2 lg:border-transparent">
+                                    <div className="flex justify-between flex-col h-72 flex-1 p-9 bg-white rounded-3xl shadow-lg border-2 border-grey2 lg:border-transparent">
                                         <div className="flex flex-col gap-3">
                                             <h4 className="text-2xl font-semibold">
                                                 {project.title}

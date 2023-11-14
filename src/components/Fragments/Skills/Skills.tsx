@@ -9,7 +9,7 @@ export const Skills: FC = () => {
             <Container size="xlarge" className="z-10">
                 <div className="bg-blue py-10 lg:pb-20 px-10 rounded-3xl">
                     <Container>
-                        <h3 className="text-center text-5xl font-bold text-grey3">
+                        <h3 className="text-center text-5xl font-bold text-white">
                             Skills
                         </h3>
                     </Container>

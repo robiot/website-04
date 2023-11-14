@@ -31,11 +31,10 @@ export const Experience: FC = () => {
                                 className="duration-500 flex items-center gap-7"
                                 key={`experience_item_${index}`}
                             >
-                                <div className="h-[60px] w-[60px] flex rounded-sm pointer-events-none">
+                                <div className="h-[60px] w-[60px] flex rounded-lg pointer-events-none overflow-hidden shadow-md border-grey2">
                                     <Image
                                         height={60}
                                         width={60}
-                                        style={{ borderRadius: "11px" }}
                                         alt={item.company}
                                         src={`/img/experience/${item.image}`}
                                     />

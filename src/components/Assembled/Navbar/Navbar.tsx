@@ -52,7 +52,7 @@ export const Navbar = () => {
                 className={cx(
                     "h-16 sticky top-0 left-0 z-50 transition-shadow duration-200 box-content border-b-[1px] border-transparent",
                     (isTop || dropdownActive) &&
-                        "bg-grey3/60 border-b-grey/10 backdrop-blur-2xl"
+                        "bg-white/90 border-b-grey/10 backdrop-blur-sm"
                 )}
             >
                 <Container size="large">

@@ -41,7 +41,7 @@ const Column: FC<{ links: LinksDataType; title: string }> = ({
 
 export const Footer = () => {
     return (
-        <div className="flex w-full bg-grey2 mt-20 py-10">
+        <div className="flex w-full bg-white border-t-[1px] border-grey1/30 border-col mt-20 py-10">
             <Container>
                 <div className="flex flex-col gap-20">
                     <div className="flex-col md:flex-row flex items-center md:items-start justify-between gap-y-9">

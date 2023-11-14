@@ -39,7 +39,7 @@ export const Dropdown: FC<{
     return (
         <div
             className={cx(
-                "fixed left-0 z-40 h-[calc(100%-4rem)] w-full bg-grey3 transition-[top] duration-200 ease-in-out",
+                "fixed left-0 z-40 h-[calc(100%-4rem)] w-full bg-white transition-[top] duration-200 ease-in-out",
                 properties.dropdownActive ? "top-16" : "-top-full"
             )}
         >

@@ -7,10 +7,9 @@ module.exports = {
             blue1: "#3c6cd2",
             black: "#000000",
             white: "#FFFFFF",
-            grey: "#666666",
-            grey1: "#B9B9B9",
-            grey2: "#ECEEF3", // sections
-            grey3: "#F7F8FF", // used for bg
+            grey: "#444444",
+            grey1: "#bebebe", // borders
+            grey2: "#f7f6f7", // sections
             transparent: "transparent", // used for bg
         },
     },
