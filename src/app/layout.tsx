@@ -4,9 +4,9 @@ import { Footer } from "@components/Assembled/Footer/Footer";
 import { Navbar } from "@components/Assembled/Navbar/Navbar";
 import { PrimaryTextCol1 } from "@utils/constants";
 import { cx } from "@utils/cx";
+import { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { FC, ReactNode } from "react";
-import { Metadata } from "next";
 
 const prompt = Outfit({
     subsets: ["latin"],
