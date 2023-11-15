@@ -196,16 +196,16 @@ export type ProjectsDataType = {
 
 export const ProjectsData: ProjectsDataType = [
     {
-        title: "XClicker",
-        description:
-            "An easy to use, feature-rich and blazing fast Autoclicker for linux desktops using x11.",
-        identifier: "robiot/xclicker",
-    },
-    {
         title: "Rustcat",
         description:
             "Rustcat is an easy to use port listener and reverse shell for Linux, MacOS, and Windows.",
         identifier: "robiot/rustcat",
+    },
+    {
+        title: "XClicker",
+        description:
+            "An easy to use, feature-rich and blazing fast Autoclicker for linux desktops using x11.",
+        identifier: "robiot/xclicker",
     },
     {
         title: "Alpha Clicker",
