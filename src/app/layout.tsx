@@ -2,6 +2,7 @@ import "@styles/index.css";
 
 import { Footer } from "@components/Assembled/Footer/Footer";
 import { Navbar } from "@components/Assembled/Navbar/Navbar";
+import { Providers } from "@components/Common/Providers";
 import { PrimaryTextCol1 } from "@utils/constants";
 import { cx } from "@utils/cx";
 import { Metadata } from "next";
@@ -40,11 +41,13 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <html lang="en" className="scroll-smooth">
             <body className={cx("scroll-smooth bg-white", prompt.className)}>
-                <Navbar />
+                <Providers>
+                    <Navbar />
 
-                {children}
+                    {children}
 
-                <Footer />
+                    <Footer />
+                </Providers>
             </body>
         </html>
     );

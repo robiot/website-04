@@ -9,7 +9,7 @@ export const Experience: FC = () => {
     return (
         <section
             id="experience"
-            className="relative mt-16 py-16 pb-64 scroll-m-10"
+            className="relative mt-24 py-24 pb-64 scroll-m-10"
         >
             <div className="absolute inset-0 w-full bg-grey2 -skew-y-1"></div>
             <Container className="relative flex flex-col gap-10 items-center justify-center">

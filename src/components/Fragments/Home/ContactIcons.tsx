@@ -23,7 +23,7 @@ export const ContactIcons: FC = () => {
                     >
                         {item.name == "Github" && <FaGithub size={28} />}
                         {item.name == "Youtube" && <FaYoutube size={28} />}
-                        {item.name == "Twitter" && <FaXTwitter size={28} />}
+                        {item.name == "X" && <FaXTwitter size={28} />}
                         {item.name == "LinkedIn" && <FaLinkedin size={28} />}
                     </a>
                 );

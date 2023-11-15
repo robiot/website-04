@@ -44,7 +44,7 @@ export const ContactData: LinksDataType = [
         to: "https://www.linkedin.com/in/robiot",
     },
     {
-        name: "Twitter",
+        name: "X",
         to: "https://x.com/robiot103",
     },
 ];
@@ -191,25 +191,26 @@ export const ExperiencesData: ExperiencesDataType = [
 export type ProjectsDataType = {
     title: string;
     description: string;
-    source: string;
+    identifier: string;
 }[];
 
 export const ProjectsData: ProjectsDataType = [
     {
-        title: "Rustcat",
-        description:
-            "Rustcat is an easy to use port listener and reverse shell for Linux, MacOS, and Windows.",
-        source: "https://github.com/robiot/rustcat",
-    },
-    {
-        title: "Zash",
-        description: "A shell that kinda works.",
-        source: "https://github.com/robiot/zash",
-    },
-    {
         title: "XClicker",
         description:
             "An easy to use, feature-rich and blazing fast Autoclicker for linux desktops using x11.",
-        source: "https://github.com/robiot/xclicker",
+        identifier: "robiot/xclicker",
+    },
+    {
+        title: "Rustcat",
+        description:
+            "Rustcat is an easy to use port listener and reverse shell for Linux, MacOS, and Windows.",
+        identifier: "robiot/rustcat",
+    },
+    {
+        title: "Alpha Clicker",
+        description:
+            "Alpha Clicker is an autoclicker for Windows with a modern user interface.",
+        identifier: "robiot/AlphaClicker",
     },
 ];
