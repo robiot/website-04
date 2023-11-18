@@ -163,7 +163,7 @@ export const ExperiencesData: ExperiencesDataType = [
         image: "github.png",
     },
     {
-        title: "Web Developer",
+        title: "Full-stack Developer",
         company: "ENS",
         date: "Jan 2023 - Oct 2023",
         image: "ens.jpg",
