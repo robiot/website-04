@@ -44,10 +44,6 @@ export const ContactData: LinksDataType = [
         to: "https://github.com/robiot",
     },
     {
-        name: "LinkedIn",
-        to: "https://www.linkedin.com/in/robiot",
-    },
-    {
         name: "X",
         to: "https://x.com/robiot103",
     },
