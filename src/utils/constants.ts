@@ -45,7 +45,7 @@ export const ContactData: LinksDataType = [
     },
     {
         name: "X",
-        to: "https://x.com/robiot103",
+        to: "https://x.com/itsrobiot",
     },
 ];
 
