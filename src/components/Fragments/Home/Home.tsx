@@ -23,7 +23,7 @@ export const Home: FC = () => {
                             </h1>
 
                             <h2 className="text-lg">
-                                A 16 year old Web and Software developer.
+                                A 17 year old Web and Software developer.
                             </h2>
 
                             <ContactIcons />
